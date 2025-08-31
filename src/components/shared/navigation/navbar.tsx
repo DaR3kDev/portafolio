@@ -1,42 +1,68 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { getTranslations } from '@/lib/i18n/i18n'
-import { Code, Github, Linkedin, Menu } from 'lucide-react'
-import { useState } from 'react'
+import { Code, Menu } from 'lucide-react'
 import { ThemeToggle } from '../toggles/dark-mode'
 import { LanguageToggle } from '../toggles/language-toggle'
-import { SocialButtons, SocialLink } from '../buttons/social-button'
 import { scrollToSection } from '@/lib/utils/scroll'
 import { LocaleProps } from '@/lib/i18n'
+import { motion } from 'motion/react'
+
+const getNavItems = (t: ReturnType<typeof getTranslations>) => [
+  { key: 'about', label: t.nav.about },
+  { key: 'experience', label: t.nav.experience },
+  { key: 'projects', label: t.nav.projects },
+  { key: 'skills', label: t.nav.skills },
+  { key: 'testimonials', label: t.nav.testimonials },
+  { key: 'contact', label: t.nav.contact },
+]
 
 export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
   const t = getTranslations(currentLocale)
   const [open, setOpen] = useState(false)
+  const navItems = getNavItems(t)
+  const [active, setActive] = useState<string>('about')
 
-  const navItems = [
-    { key: 'about', label: t.nav.about },
-    { key: 'experience', label: t.nav.experience },
-    { key: 'projects', label: t.nav.projects },
-    { key: 'skills', label: t.nav.skills },
-    { key: 'testimonials', label: t.nav.testimonials },
-    { key: 'contact', label: t.nav.contact },
-  ]
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActive(entry.target.id)
+        })
+      },
+      { threshold: 0.6 },
+    )
+
+    navItems.forEach(item => {
+      const section = document.getElementById(item.key)
+      if (section) observer.observe(section)
+    })
+
+    return () => observer.disconnect()
+  }, [navItems])
+
+  const linkClasses = (key: string) =>
+    `relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 
+     ${active === key ? 'text-primary' : 'text-muted-foreground hover:text-primary'} 
+     hover:bg-primary/5 group`
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-lg shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <a
           href="/"
+          aria-label="Ir al inicio"
           onClick={e => {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: 'smooth' })
           }}
           className="flex items-center space-x-3 group"
         >
-          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
+          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
             <Code className="h-6 w-6 text-primary-foreground" />
             <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
@@ -54,10 +80,20 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
             <button
               key={item.key}
               onClick={() => scrollToSection(item.key)}
-              className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-primary rounded-lg hover:bg-primary/5 transition-all duration-200 group"
+              className={linkClasses(item.key)}
             >
               {item.label}
-              <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/60 group-hover:w-3/4 transform -translate-x-1/2 transition-all duration-300" />
+              {/* Línea animada debajo */}
+              <motion.span
+                layoutId="underline"
+                className="absolute bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
+                initial={false}
+                animate={{
+                  width: active === item.key ? '60%' : '0%',
+                  x: '-50%',
+                }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              />
             </button>
           ))}
         </nav>
@@ -70,18 +106,19 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
             <ThemeToggle />
           </div>
 
-          {/* Menú móvil con Popover */}
+          {/* Menú móvil */}
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="ghost"
                 size="sm"
+                aria-label="Abrir menú de navegación"
                 className="lg:hidden hover:bg-primary/10 transition-all duration-200"
               >
                 <Menu className="h-5 w-5" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-56 p-4 space-y-4">
+            <PopoverContent className="w-56 p-4 space-y-4 bg-background/95 backdrop-blur-md shadow-lg rounded-xl">
               <div className="flex flex-col space-y-2">
                 {navItems.map(item => (
                   <button
@@ -90,7 +127,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
                       scrollToSection(item.key)
                       setOpen(false)
                     }}
-                    className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all"
+                    className="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all duration-200"
                   >
                     {item.label}
                   </button>
