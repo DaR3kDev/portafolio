@@ -7,20 +7,21 @@ import { ProjectPagination } from '../pagination/pagination'
 import { TabsCategories } from '../tabs/tabs-custom'
 import { PageSection } from '../layout/page-section'
 import { ProjectCard } from '@/components/features/proyects/project-card'
-import { getProjectCategories, getProjects } from '@/components/features/proyects/projects.data'
+import { getProjectCategories } from '@/components/features/proyects/projects.data'
 
 export function Projects({ currentLocale }: LocaleProps) {
   const t = getTranslations(currentLocale)
   const [activeProjectTab, setActiveProjectTab] = useState('all')
   const [currentPage, setCurrentPage] = useState(1)
 
-  const projects = getProjects(t)
   const categories = getProjectCategories(currentLocale)
 
   const projectsPerPage = 3
 
   const filteredProjects =
-    activeProjectTab === 'all' ? projects : projects.filter(p => p.category === activeProjectTab)
+    activeProjectTab === 'all'
+      ? t.projects.items
+      : t.projects.items.filter(p => p.category === activeProjectTab)
 
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage)
   const startIndex = (currentPage - 1) * projectsPerPage
@@ -40,7 +41,7 @@ export function Projects({ currentLocale }: LocaleProps) {
           <p className="text-lg text-muted-foreground leading-relaxed">{t.projects.subtitle}</p>
         </div>
 
-        {/* Categorías */}
+        {/* Categories */}
         <TabsCategories
           categories={categories}
           active={activeProjectTab}
@@ -57,7 +58,7 @@ export function Projects({ currentLocale }: LocaleProps) {
           ))}
         </div>
 
-        {/* Mensaje sin proyectos */}
+        {/* No projects message */}
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
@@ -68,7 +69,7 @@ export function Projects({ currentLocale }: LocaleProps) {
           </div>
         )}
 
-        {/* Paginación */}
+        {/* Pagination */}
         {totalPages > 1 && (
           <ProjectPagination
             currentPage={currentPage}

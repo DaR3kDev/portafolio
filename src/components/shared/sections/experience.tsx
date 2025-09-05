@@ -5,6 +5,7 @@ import { PageSection } from '../layout/page-section'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../ui/card'
 import { Briefcase } from 'lucide-react'
 import { motion, useScroll, useSpring } from 'framer-motion'
+import { Badge } from '@/components/ui/badge'
 
 export function Experience({ currentLocale }: LocaleProps) {
   const t = getTranslations(currentLocale)
@@ -86,9 +87,7 @@ export function Experience({ currentLocale }: LocaleProps) {
                       </div>
 
                       {/* Periodo destacado */}
-                      <span className="text-sm font-medium text-primary/90">
-                        {exp.period ?? 'Sin fecha'}
-                      </span>
+                      <Badge className="text-sm font-medium ">{exp.period ?? 'Sin fecha'}</Badge>
                     </div>
                   </CardHeader>
 

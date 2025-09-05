@@ -7,6 +7,7 @@ import { Hero } from '@/components/shared/sections/hero'
 import { Projects } from '@/components/shared/sections/projects'
 import { Experience } from '@/components/shared/sections/experience'
 import { Footer } from '@/components/shared/footer/footer'
+import { EducationSection } from '@/components/shared/sections/education'
 
 export default function Home() {
   const [currentLocale, setCurrentLocale] = useState<Locale>(defaultLocale)
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
       <Experience currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
       <Projects currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
+      <EducationSection currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
       <Footer currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
     </div>
   )
