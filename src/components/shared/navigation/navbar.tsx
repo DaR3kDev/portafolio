@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { getTranslations } from '@/lib/i18n/i18n'
-import { Code, Menu } from 'lucide-react'
+import { Menu } from 'lucide-react'
 import { ThemeToggle } from '../toggles/dark-mode'
 import { LanguageToggle } from '../toggles/language-toggle'
 import { scrollToSection } from '@/lib/utils/scroll'
 import { LocaleProps } from '@/lib/i18n'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const getNavItems = (t: ReturnType<typeof getTranslations>) => [
   { key: 'experience', label: t.nav.experience },
@@ -52,7 +53,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <a
+        <Link
           href="/"
           aria-label="Ir al inicio"
           onClick={e => {
@@ -77,7 +78,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
                      transition-opacity duration-300"
             />
           </div>
-        </a>
+        </Link>
         {/* Navegación Desktop */}
         <nav className="hidden lg:flex items-center space-x-3">
           {navItems.map(item => (

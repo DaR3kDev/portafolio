@@ -4,6 +4,7 @@ import { ModalProps } from './interfaces/modal-education.interfaces'
 import { X, GraduationCap, Download, FileText } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import Image from 'next/image'
 
 export function ModalEducation({
   isOpen,
@@ -33,7 +34,7 @@ export function ModalEducation({
           <div className="space-y-6">
             {/* Imagen */}
             <div className="aspect-[4/3] overflow-hidden rounded-xl shadow-md">
-              <img
+              <Image
                 src={selectedDiploma.image || '/placeholder.svg'}
                 alt={selectedDiploma.title}
                 className="object-cover w-full h-full"

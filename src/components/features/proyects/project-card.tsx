@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ExternalLink, Github, Code } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 type ProjectProps = {
@@ -28,9 +29,10 @@ export function ProjectCard({
       {/* Image */}
       <div className="aspect-video relative overflow-hidden">
         {image ? (
-          <img
+          <Image
             src={image}
             alt={title}
+            fill
             className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-500"
           />
         ) : (
@@ -93,7 +95,7 @@ export function ProjectCard({
         {/* "View Project" Button */}
         {slug && (
           <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-            <Link href={`/projects/${slug}`}>{`View Project`}</Link>
+            <Link href={`/projects/${slug}`}>View Project</Link>
           </Button>
         )}
       </CardContent>

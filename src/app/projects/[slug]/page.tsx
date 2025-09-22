@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ExternalLink, Github, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default async function ProjectDetailPage({
   params,
@@ -70,10 +71,12 @@ export default async function ProjectDetailPage({
         {/* Imagen del proyecto */}
         {project.image && (
           <Card className="overflow-hidden shadow-xl rounded-2xl hover:shadow-2xl transition-shadow duration-300">
-            <img
+            <Image
               src={project.image.startsWith('/') ? project.image : `/${project.image}`}
               alt={project.title}
-              className="object-cover w-full h-64 sm:h-80 md:h-96 transition-transform duration-500 hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-500 hover:scale-105"
+              priority
             />
           </Card>
         )}

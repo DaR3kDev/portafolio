@@ -9,13 +9,20 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   if (!mounted) return null
 
   const toggleTheme = () => {
-    const next = theme === 'light' ? 'dark' : 'light'
-    document.startViewTransition?.(() => setTheme(next)) || setTheme(next)
+    const nextTheme = theme === 'light' ? 'dark' : 'light'
+
+    if (document.startViewTransition) {
+      document.startViewTransition(() => setTheme(nextTheme))
+    } else {
+      setTheme(nextTheme)
+    }
   }
 
   return (
