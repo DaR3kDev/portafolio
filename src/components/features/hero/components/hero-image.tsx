@@ -5,7 +5,7 @@ export function HeroImage({ t }: { t: any }) {
     <div className="flex flex-col items-center gap-6 md:gap-8">
       <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-primary/40">
         <Image
-          src="../public/next.svg"
+          src="/img/me.jpg"
           alt="Profile photo"
           fill
           className="object-cover"
