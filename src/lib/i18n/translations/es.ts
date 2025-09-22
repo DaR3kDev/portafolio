@@ -4,8 +4,7 @@ export const es = {
     experience: 'Experiencia',
     projects: 'Proyectos',
     skills: 'Habilidades',
-    testimonials: 'Testimonios',
-    contact: 'Contacto',
+    education: 'Educación',
   },
   hero: {
     greeting: 'Hola, soy',

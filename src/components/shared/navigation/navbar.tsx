@@ -10,14 +10,13 @@ import { LanguageToggle } from '../toggles/language-toggle'
 import { scrollToSection } from '@/lib/utils/scroll'
 import { LocaleProps } from '@/lib/i18n'
 import { motion } from 'motion/react'
+import Image from 'next/image'
 
 const getNavItems = (t: ReturnType<typeof getTranslations>) => [
-  { key: 'about', label: t.nav.about },
   { key: 'experience', label: t.nav.experience },
   { key: 'projects', label: t.nav.projects },
-  { key: 'skills', label: t.nav.skills },
-  { key: 'testimonials', label: t.nav.testimonials },
-  { key: 'contact', label: t.nav.contact },
+  { key: 'education', label: t.nav.education },
+  { key: 'about', label: t.nav.about },
 ]
 
 export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
@@ -62,18 +61,23 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
           }}
           className="flex items-center space-x-3 group"
         >
-          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-            <Code className="h-6 w-6 text-primary-foreground" />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="font-bold text-2xl bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent">
-              Portfolio
-            </span>
-            <span className="text-xs text-muted-foreground font-medium">Developer</span>
+          <div
+            className="relative w-16 h-16 flex items-center justify-center
+                   rounded-xl shadow-lg transition-transform duration-300
+                   bg-gradient-to-br from-primary via-primary/80 to-primary/60
+                   group-hover:scale-105"
+          >
+            <Image src="/img/logo.jpg" alt="Logo" fill className="rounded-xl object-contain" />
+
+            {/* Overlay con efecto hover */}
+            <div
+              className="absolute inset-0 rounded-xl 
+                     bg-gradient-to-br from-white/20 to-transparent 
+                     opacity-0 group-hover:opacity-100 
+                     transition-opacity duration-300"
+            />
           </div>
         </a>
-
         {/* Navegación Desktop */}
         <nav className="hidden lg:flex items-center space-x-3">
           {navItems.map(item => (
@@ -83,6 +87,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
               className={linkClasses(item.key)}
             >
               {item.label}
+
               {/* Línea animada debajo */}
               <motion.span
                 layoutId="underline"
@@ -98,9 +103,9 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
           ))}
         </nav>
 
-        {/* Controles */}
+        {/* Controles (Idioma, Tema, Menú Móvil) */}
         <div className="flex items-center space-x-2">
-          {/* Idioma y tema */}
+          {/* Idioma y tema (Desktop) */}
           <div className="hidden sm:flex items-center space-x-2">
             <LanguageToggle currentLocale={currentLocale} onLocaleChange={onLocaleChange} />
             <ThemeToggle />
@@ -118,7 +123,9 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
                 <Menu className="h-5 w-5" />
               </Button>
             </PopoverTrigger>
+
             <PopoverContent className="w-56 p-4 space-y-4 bg-background/95 backdrop-blur-md shadow-lg rounded-xl">
+              {/* Links del menú móvil */}
               <div className="flex flex-col space-y-2">
                 {navItems.map(item => (
                   <button
@@ -134,6 +141,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
                 ))}
               </div>
 
+              {/* Controles dentro del menú móvil */}
               <div className="pt-3 border-t flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <LanguageToggle currentLocale={currentLocale} onLocaleChange={onLocaleChange} />

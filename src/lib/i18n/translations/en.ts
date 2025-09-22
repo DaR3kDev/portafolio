@@ -3,9 +3,7 @@ export const en = {
     about: 'About Me',
     experience: 'Experience',
     projects: 'Projects',
-    skills: 'Skills',
-    testimonials: 'Testimonials',
-    contact: 'Contact',
+    education: 'Education',
   },
   hero: {
     greeting: "Hi, I'm a",
