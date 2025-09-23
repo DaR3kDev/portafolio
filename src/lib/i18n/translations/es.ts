@@ -76,8 +76,7 @@ export const es = {
         description:
           'Programa intensivo en tecnologías web modernas y metodologías ágiles, con énfasis en desarrollo full-stack.',
         skills: ['JavaScript', 'React', 'Node.js', 'Metodologías Ágiles'],
-        downloadUrl:
-          'https://drive.google.com/file/d/1zrIIUTQTikWhWo32xnW8ktPaNEm5P5_O/view?usp=sharing',
+        downloadUrl: '/pdf/ANALISIS Y DESARROLLO DE SOFTWARE.pdf',
       },
       {
         id: 3,
@@ -89,7 +88,8 @@ export const es = {
         description:
           'Gestión y administración de servidores Linux, configuraciones de red y despliegue de servicios en entornos productivos.',
         skills: ['Linux', 'Ubuntu'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          '/pdf/ADMINISTRACION DE SERVICIOS DE RED EN SISTEMAS OPERATIVOS GNU-LINUX SERVER.pdf',
       },
       {
         id: 4,
@@ -101,7 +101,7 @@ export const es = {
         description:
           'Fundamentos esenciales de redes de datos, configuración de dispositivos Cisco y conceptos básicos de conectividad.',
         skills: ['Cisco Networking'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl: '/pdf/CCNA EXPLORATION - ASPECTOS BÁSICOS DE NETWORKING.pdf',
       },
       {
         id: 5,
@@ -113,7 +113,7 @@ export const es = {
         description:
           'Implementación de entornos virtualizados, administración de máquinas virtuales y optimización de recursos en servidores.',
         skills: ['VMware', 'Virtualización'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl: '/pdf/VIRTUALIZACION DE SERVIDORES.pdf',
       },
       {
         id: 6,
@@ -125,7 +125,7 @@ export const es = {
         description:
           'Curso introductorio de inglés enfocado en gramática básica, vocabulario y habilidades de comunicación cotidiana.',
         skills: ['Inglés básico', 'Gramática', 'Vocabulario', 'Comunicación'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl: '/pdf/ENGLISH DOT WORKS 1.pdf',
       },
       {
         id: 7,
@@ -137,7 +137,7 @@ export const es = {
         description:
           'Curso de inglés orientado a fortalecer las habilidades de escucha, lectura y expresión oral a nivel básico (A2).',
         skills: ['Inglés A2', 'Escucha', 'Lectura', 'Expresión oral'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl: '/pdf/INGLES BASICO - NIVEL 3.pdf',
       },
     ],
   },

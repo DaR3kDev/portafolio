@@ -71,7 +71,7 @@ export const en = {
           'Intensive program in modern web technologies and agile methodologies, with emphasis on full-stack development.',
         skills: ['JavaScript', 'React', 'Node.js', 'Agile Methodologies'],
         downloadUrl:
-          'https://drive.google.com/file/d/1zrIIUTQTikWhWo32xnW8ktPaNEm5P5_O/view?usp=sharing',
+          '',
       },
       {
         id: 3,
@@ -83,7 +83,8 @@ export const en = {
         description:
           'Management and administration of Linux servers, network configuration, and service deployment in production environments.',
         skills: ['Linux', 'Ubuntu'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
       },
       {
         id: 4,
@@ -95,7 +96,8 @@ export const en = {
         description:
           'Fundamental concepts of computer networks, Cisco device configuration, and basic connectivity principles.',
         skills: ['Cisco Networking'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
       },
       {
         id: 5,
@@ -107,7 +109,8 @@ export const en = {
         description:
           'Implementation of virtualized environments, virtual machine management, and server resource optimization.',
         skills: ['VMware', 'Virtualization'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
       },
       {
         id: 6,
@@ -119,7 +122,8 @@ export const en = {
         description:
           'Introductory English course focused on basic grammar, vocabulary, and everyday communication skills.',
         skills: ['Basic English', 'Grammar', 'Vocabulary', 'Communication'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
       },
       {
         id: 7,
@@ -131,7 +135,8 @@ export const en = {
         description:
           'English course aimed at strengthening listening, reading, and speaking skills at the A2 level.',
         skills: ['English A2', 'Listening', 'Reading', 'Speaking'],
-        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+        downloadUrl:
+          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
       },
     ],
   },
