@@ -68,7 +68,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
                    bg-gradient-to-br from-primary via-primary/80 to-primary/60
                    group-hover:scale-105"
           >
-            <Image src="/img/logo.jpg" alt="Logo" fill className="rounded-xl object-contain" />
+            <Image src="/img/logo.webp" alt="Logo" fill className="rounded-xl object-contain" />
 
             {/* Overlay con efecto hover */}
             <div

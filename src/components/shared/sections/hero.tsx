@@ -9,24 +9,10 @@ import { HeroText } from '@/components/features/hero/components/hero-text'
 import { HeroImage } from '@/components/features/hero/components/hero-image'
 import { HeroStats } from '@/components/features/hero/components/hero-stats'
 import { ScrollDownButton } from '@/components/features/hero/components/scroll-down-button'
+import { socialLinks } from '@/constants/social-links'
 
 export function Hero({ currentLocale }: LocaleProps) {
   const t = getTranslations(currentLocale)
-
-  const socialLinks: SocialLink[] = [
-    { icon: <Mail className="w-full h-full" />, href: 'mailto:example@mail.com', label: 'Email' },
-    {
-      icon: <Linkedin className="w-full h-full" />,
-      href: 'https://linkedin.com',
-      label: 'LinkedIn',
-    },
-    { icon: <Github className="w-full h-full" />, href: 'https://github.com', label: 'GitHub' },
-    {
-      icon: <WhatsAppIcon className="w-full h-full" />,
-      href: 'https://wa.me/573001234567',
-      label: 'WhatsApp',
-    },
-  ]
 
   const stats = [
     { value: 567, decimals: 0, label: 'Repostories' },

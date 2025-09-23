@@ -8,21 +8,28 @@ import { useModal } from '@/hooks/use-modal'
 import { LocaleProps } from '@/lib/i18n'
 import { getTranslations } from '@/lib/i18n/i18n'
 import { PageSection } from '../layout/page-section'
+import { motion } from 'framer-motion'
+import { chunkArray } from '@/lib/utils/array'
 
 export function EducationSection({ currentLocale }: LocaleProps) {
   const t = getTranslations(currentLocale)
   const { isOpen, data, open, close } = useModal<Diploma>()
 
-  // Dividir los diplomas en dos filas para los carruseles
-  const half = Math.ceil(t.education.degrees.length / 2)
-  const firstRow = t.education.degrees.slice(0, half)
+  // 🔹 Eliminar duplicados por título
+  const uniqueDegrees = t.education.degrees.filter(
+    (d: Diploma, index: number, self: Diploma[]) =>
+      index === self.findIndex(d2 => d2.title === d.title),
+  )
 
-  // Convertir diploma a tipo Diploma para abrir el modal
-  const handleOpen = (diploma: (typeof t.education.degrees)[0], index: number) => {
+  // 🔹 Dividir dinámicamente diplomas
+  const groups = chunkArray(uniqueDegrees, 4)
+
+  // 🔹 Función para abrir modal
+  const handleOpen = (diploma: Diploma, index: number) => {
     open({
-      id: index + 1,
-      title: diploma.degree,
-      institution: diploma.school,
+      id: diploma.id ?? index + 1,
+      title: diploma.title,
+      institution: diploma.institution,
       type: diploma.type,
       year: diploma.year,
       image: diploma.image,
@@ -33,27 +40,46 @@ export function EducationSection({ currentLocale }: LocaleProps) {
   }
 
   return (
-    <PageSection id="education" className="py-20 relative overflow-hidden">
-      {/* ----- Título ----- */}
-      <div className="max-w-3xl mx-auto text-center mb-12 px-4">
-        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+    <PageSection id="education" className="py-24 relative overflow-hidden">
+      {/* ----- Header ----- */}
+      <motion.div
+        className="max-w-3xl mx-auto text-center mb-20 px-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-black dark:text-white">
           {t.education.title}
         </h2>
-        <p className="mt-4 text-lg text-gray-600">{t.education.subtitle}</p>
+        <p className="mt-4 text-lg text-black/70 dark:text-white/70">{t.education.subtitle}</p>
+      </motion.div>
+
+      {/* ----- Carruseles dinámicos ----- */}
+      <div className="relative flex flex-col items-center justify-center gap-20">
+        {groups.map((group, rowIndex) => (
+          <Marquee
+            key={rowIndex}
+            pauseOnHover
+            className="[--duration:25s] gap-10"
+            reverse={rowIndex % 2 === 1}
+          >
+            {group.map((diploma, index) => (
+              <motion.div
+                key={diploma.id ?? diploma.title}
+                whileHover={{ scale: 1.05, y: -6 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 18 }}
+                onClick={() => handleOpen(diploma, rowIndex * group.length + index)}
+                className="cursor-pointer bg-white dark:bg-black rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6"
+              >
+                <ReviewCard img={diploma.image} title={diploma.title} />
+              </motion.div>
+            ))}
+          </Marquee>
+        ))}
       </div>
 
-      {/* ----- Carruseles de diplomas ----- */}
-      <div className="relative flex flex-col items-center justify-center gap-8">
-        <Marquee pauseOnHover className="[--duration:25s] gap-6">
-          {firstRow.map((diploma, index) => (
-            <div key={diploma.degree} onClick={() => handleOpen(diploma, index)}>
-              <ReviewCard img={diploma.image} />
-            </div>
-          ))}
-        </Marquee>
-      </div>
-
-      {/* ----- Modal de diploma ----- */}
+      {/* ----- Modal con info del diploma ----- */}
       <ModalEducation
         isOpen={isOpen}
         onClose={close}

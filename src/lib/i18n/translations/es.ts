@@ -7,10 +7,10 @@ export const es = {
     education: 'Educación',
   },
   hero: {
-    greeting: 'Hola, soy',
-    role: 'Desarrollador',
+    greeting: 'Hey! Soy Kevin',
+    role: 'Ingeniero en Sistemas | Desarrollador Fullstack',
     description:
-      'Creo experiencias digitales excepcionales combinando diseño elegante con código limpio. Especializado en desarrollo web moderno y soluciones innovadoras.',
+      'Me encanta crear software con arquitectura limpia y código claro, siempre buscando soluciones que realmente ayuden a las personas.',
     viewProjects: 'Ver Proyectos',
     downloadCV: 'Descargar CV',
   },
@@ -26,43 +26,38 @@ export const es = {
   },
   experience: {
     title: 'Experiencia Profesional',
-    subtitle: 'Mi trayectoria profesional y los logros más destacados',
+    subtitle: 'Mi trayectoria profesional',
     jobs: [
       {
-        title: 'Senior Frontend Developer',
-        company: 'Tech Solutions Inc.',
-        period: '2022 - Presente',
+        title: 'Desarrollador Backend',
+        company: 'Softtek',
+        period: 'Abr 2025 – Actualidad',
         description:
-          'Lidero el desarrollo de aplicaciones web modernas usando React y Next.js. Implementé mejoras que aumentaron la velocidad de carga en un 40%.',
+          'Soporte y mantenimiento de sistemas en producción basados en código legacy, además de documentación para usuarios no técnicos.',
       },
       {
-        title: 'Full Stack Developer',
-        company: 'Digital Agency',
-        period: '2020 - 2022',
+        title: 'Desarrollador Backend',
+        company: 'Colombiana de Accesorios',
+        period: 'Feb 2024 – Feb 2025',
         description:
-          'Desarrollé aplicaciones completas desde el frontend hasta el backend. Trabajé con equipos multidisciplinarios en proyectos de gran escala.',
-      },
-      {
-        title: 'Junior Developer',
-        company: 'StartUp Innovadora',
-        period: '2019 - 2020',
-        description:
-          'Comencé mi carrera profesional desarrollando features para una plataforma SaaS. Aprendí las mejores prácticas de desarrollo ágil.',
+          'Migración y modernización de módulos ERP en .NET, optimización de consultas SQL y mejoras en inventario y flujo comercial.',
       },
     ],
   },
+
   education: {
     title: 'Educación',
     subtitle: 'Mi formación académica y certificaciones',
     degrees: [
       {
-        degree: 'Ingeniería en Sistemas',
-        school: 'Corporación de Estudios Tecnológicos del Norte del Valle, Cartago',
-        type: 'Ingeniería en Sistemas',
+        id: 1,
+        title: 'Ingeniería en Sistemas',
+        institution: 'Corporación de Estudios Tecnológicos del Norte del Valle, Cartago',
+        type: 'Pregrado',
         year: '2024 - Actualmente',
-        image: '/university-diploma-certificate.png',
+        image: '',
         description:
-          'Especialización en desarrollo de software y arquitectura de sistemas. Enfocado en crear soluciones eficientes, escalables y seguras.',
+          'Formación enfocada en desarrollo de software y arquitectura de sistemas, orientada a crear soluciones eficientes, escalables y seguras.',
         skills: [
           'Programación',
           'Diseño de Bases de Datos',
@@ -72,15 +67,77 @@ export const es = {
         downloadUrl: '#',
       },
       {
-        degree: 'Análisis y Desarrollo de Software',
-        school: 'SENA, Cartago',
-        type: 'Técnico / Tecnológico',
+        id: 2,
+        title: 'Análisis y Desarrollo de Software',
+        institution: 'SENA, Cartago',
+        type: 'Tecnólogo',
         year: '2022 - 2024',
-        image: '/sena-certificate.png',
+        image: '/img/certificacion-software.webp',
         description:
-          'Programa intensivo en tecnologías web modernas y metodologías ágiles, con enfoque en desarrollo full-stack.',
+          'Programa intensivo en tecnologías web modernas y metodologías ágiles, con énfasis en desarrollo full-stack.',
         skills: ['JavaScript', 'React', 'Node.js', 'Metodologías Ágiles'],
-        downloadUrl: '#',
+        downloadUrl:
+          'https://drive.google.com/file/d/1zrIIUTQTikWhWo32xnW8ktPaNEm5P5_O/view?usp=sharing',
+      },
+      {
+        id: 3,
+        title: 'Administración de Servicios de Red en Sistemas Operativos GNU/Linux Server',
+        institution: 'SENA, Cartago',
+        type: 'Curso',
+        year: '2022',
+        image: '/img/certificacion-server-linux.webp',
+        description:
+          'Gestión y administración de servidores Linux, configuraciones de red y despliegue de servicios en entornos productivos.',
+        skills: ['Linux', 'Ubuntu'],
+        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+      },
+      {
+        id: 4,
+        title: 'CCNA Exploration - Aspectos Básicos de Networking',
+        institution: 'SENA, Cartago',
+        type: 'Curso',
+        year: '2022',
+        image: '/img/certificacion-ccna-exploration.webp',
+        description:
+          'Fundamentos esenciales de redes de datos, configuración de dispositivos Cisco y conceptos básicos de conectividad.',
+        skills: ['Cisco Networking'],
+        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+      },
+      {
+        id: 5,
+        title: 'Virtualización de Servidores',
+        institution: 'SENA, Cartago',
+        type: 'Curso',
+        year: '2022',
+        image: '/img/certifiacion-virtualizacion-servidor.webp',
+        description:
+          'Implementación de entornos virtualizados, administración de máquinas virtuales y optimización de recursos en servidores.',
+        skills: ['VMware', 'Virtualización'],
+        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+      },
+      {
+        id: 6,
+        title: 'English Dot Works 1',
+        institution: 'SENA, Cartago',
+        type: 'Curso de Idiomas',
+        year: '2022',
+        image: '/img/certificado-ingles1.webp',
+        description:
+          'Curso introductorio de inglés enfocado en gramática básica, vocabulario y habilidades de comunicación cotidiana.',
+        skills: ['Inglés básico', 'Gramática', 'Vocabulario', 'Comunicación'],
+        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
+      },
+      {
+        id: 7,
+        title: 'Inglés Básico - Nivel 3',
+        institution: 'SENA, Cartago',
+        type: 'Curso de Idiomas',
+        year: '2022',
+        image: '/img/certificado-ingles-basico3.webp',
+        description:
+          'Curso de inglés orientado a fortalecer las habilidades de escucha, lectura y expresión oral a nivel básico (A2).',
+        skills: ['Inglés A2', 'Escucha', 'Lectura', 'Expresión oral'],
+        downloadUrl: 'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx',
       },
     ],
   },
