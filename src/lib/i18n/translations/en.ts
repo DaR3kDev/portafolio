@@ -6,8 +6,8 @@ export const en = {
     education: 'Education',
   },
   hero: {
-    greeting: 'Hey! I’m Kevin 👋',
-    role: 'Systems Engineer | Fullstack Developer',
+    greeting: 'Hey! I’m Kevin',
+    role: 'Systems Engineer',
     description:
       'I love building software with clean architecture and clear code, always aiming for solutions that truly help people.',
     viewProjects: 'View Projects',
@@ -43,7 +43,6 @@ export const en = {
       },
     ],
   },
-
   education: {
     title: 'Education',
     subtitle: 'My academic background and certifications',
@@ -52,11 +51,11 @@ export const en = {
         id: 1,
         title: 'Systems Engineering',
         institution: 'Corporación de Estudios Tecnológicos del Norte del Valle, Cartago',
-        type: 'Bachelor’s Degree',
+        type: 'Undergraduate',
         year: '2024 - Present',
         image: '',
         description:
-          'Focused on software development and systems architecture, oriented to building efficient, scalable, and secure solutions.',
+          'Education focused on software development and systems architecture, aimed at creating efficient, scalable, and secure solutions.',
         skills: ['Programming', 'Database Design', 'Software Architecture', 'Project Management'],
         downloadUrl: '#',
       },
@@ -68,36 +67,34 @@ export const en = {
         year: '2022 - 2024',
         image: '/img/certificacion-software.webp',
         description:
-          'Intensive program in modern web technologies and agile methodologies, with emphasis on full-stack development.',
+          'Intensive program in modern web technologies and agile methodologies, with an emphasis on full-stack development.',
         skills: ['JavaScript', 'React', 'Node.js', 'Agile Methodologies'],
-        downloadUrl:
-          '',
+        downloadUrl: '/pdf/ANALISIS Y DESARROLLO DE SOFTWARE.pdf',
       },
       {
         id: 3,
-        title: 'Administration of Network Services in GNU/Linux Operating Systems',
+        title: 'Network Services Administration in GNU/Linux Server Operating Systems',
         institution: 'SENA, Cartago',
         type: 'Course',
         year: '2022',
         image: '/img/certificacion-server-linux.webp',
         description:
-          'Management and administration of Linux servers, network configuration, and service deployment in production environments.',
+          'Management and administration of Linux servers, network configurations, and service deployment in production environments.',
         skills: ['Linux', 'Ubuntu'],
         downloadUrl:
-          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
+          '/pdf/ADMINISTRACION DE SERVICIOS DE RED EN SISTEMAS OPERATIVOS GNU-LINUX SERVER.pdf',
       },
       {
         id: 4,
-        title: 'CCNA Exploration - Networking Fundamentals',
+        title: 'CCNA Exploration - Networking Basics',
         institution: 'SENA, Cartago',
         type: 'Course',
         year: '2022',
         image: '/img/certificacion-ccna-exploration.webp',
         description:
-          'Fundamental concepts of computer networks, Cisco device configuration, and basic connectivity principles.',
+          'Essential fundamentals of data networks, Cisco device configuration, and basic connectivity concepts.',
         skills: ['Cisco Networking'],
-        downloadUrl:
-          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
+        downloadUrl: '/pdf/CCNA EXPLORATION - ASPECTOS BÁSICOS DE NETWORKING.pdf',
       },
       {
         id: 5,
@@ -107,10 +104,9 @@ export const en = {
         year: '2022',
         image: '/img/certifiacion-virtualizacion-servidor.webp',
         description:
-          'Implementation of virtualized environments, virtual machine management, and server resource optimization.',
+          'Implementation of virtualized environments, management of virtual machines, and resource optimization in servers.',
         skills: ['VMware', 'Virtualization'],
-        downloadUrl:
-          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
+        downloadUrl: '/pdf/VIRTUALIZACION DE SERVIDORES.pdf',
       },
       {
         id: 6,
@@ -122,8 +118,7 @@ export const en = {
         description:
           'Introductory English course focused on basic grammar, vocabulary, and everyday communication skills.',
         skills: ['Basic English', 'Grammar', 'Vocabulary', 'Communication'],
-        downloadUrl:
-          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
+        downloadUrl: '/pdf/ENGLISH DOT WORKS 1.pdf',
       },
       {
         id: 7,
@@ -133,10 +128,9 @@ export const en = {
         year: '2022',
         image: '/img/certificado-ingles-basico3.webp',
         description:
-          'English course aimed at strengthening listening, reading, and speaking skills at the A2 level.',
+          'English course aimed at strengthening listening, reading, and speaking skills at the basic level (A2).',
         skills: ['English A2', 'Listening', 'Reading', 'Speaking'],
-        downloadUrl:
-          'https://drive.google.com/drive/folders/1FHCNx6FlG7yFDDyGyM1Y5YA6M-1Nivrx?dmr=1&ec=wgc-drive-globalnav-goto',
+        downloadUrl: '/pdf/INGLES BASICO - NIVEL 3.pdf',
       },
     ],
   },
@@ -231,50 +225,7 @@ export const en = {
       },
     ],
   },
-  skills: {
-    title: 'Skills',
-    subtitle: 'Technologies and tools I master',
-    level: 'Level',
-    items: [
-      { name: 'Frontend Development' },
-      { name: 'UI/UX Design' },
-      { name: 'Mobile Development' },
-    ],
-  },
-  testimonials: {
-    title: 'Testimonials',
-    subtitle: 'What my colleagues and clients say about my work',
-    items: [
-      {
-        name: 'María González',
-        role: 'Product Manager',
-        company: 'Tech Solutions Inc.',
-        content:
-          'Working with him has been exceptional. His attention to detail and ability to solve complex problems is impressive.',
-      },
-      {
-        name: 'Carlos Rodríguez',
-        role: 'CEO',
-        company: 'Digital Agency',
-        content:
-          'A talented developer who always delivers high-quality projects on time. Highly recommended.',
-      },
-    ],
-  },
-  contact: {
-    title: "Let's Work Together",
-    subtitle: "Have a project in mind? I'd love to hear your ideas",
-    formTitle: 'Contact Me',
-    formSubtitle: "Send me a message and I'll get back to you as soon as possible",
-    name: 'Name',
-    namePlaceholder: 'Your name',
-    email: 'Email',
-    emailPlaceholder: 'your@email.com',
-    message: 'Message',
-    messagePlaceholder: 'Tell me about your project...',
-    send: 'Send Message',
-  },
   footer: {
-    rights: '© 2024 My Portfolio. All rights reserved.',
+    rights: 'All rights reserved.',
   },
 }

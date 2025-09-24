@@ -19,7 +19,7 @@ export function Footer({ currentLocale }: LocaleProps) {
           <div className="flex items-center gap-3 transition hover:opacity-90">
             <div className="w-12 h-12 rounded-xl bg-gray-900 dark:bg-white flex items-center justify-center shadow-lg">
               <Image
-                src="/img/logo.jpg"
+                src="/img/logo.webp"
                 alt="Logo"
                 width={48}
                 height={48}

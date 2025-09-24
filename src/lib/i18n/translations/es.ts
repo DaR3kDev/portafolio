@@ -8,7 +8,7 @@ export const es = {
   },
   hero: {
     greeting: 'Hey! Soy Kevin',
-    role: 'Ingeniero en Sistemas | Desarrollador Fullstack',
+    role: 'Ingeniero en Sistemas',
     description:
       'Me encanta crear software con arquitectura limpia y código claro, siempre buscando soluciones que realmente ayuden a las personas.',
     viewProjects: 'Ver Proyectos',
@@ -16,12 +16,12 @@ export const es = {
   },
   about: {
     title: 'Sobre Mí',
-    subtitle: 'Conoce más sobre mi trayectoria y pasión por el desarrollo',
+    subtitle: 'Conoce más sobre mi trayectoria',
     description1:
-      'Soy un desarrollador apasionado con más de 5 años de experiencia creando soluciones digitales innovadoras. Mi enfoque se centra en escribir código limpio, escalable y mantener las mejores prácticas de desarrollo.',
+      'Me encanta el mundo del desarrollo de software para brindar una solución, dándole una solución fija.',
     description2:
-      'Me especializo en tecnologías modernas como React, Next.js, TypeScript y Node.js. Disfruto trabajando en equipos colaborativos y siempre estoy buscando nuevos desafíos que me permitan crecer profesionalmente.',
-    location: 'Madrid, España',
+      'Adapto cualquier tipo de tecnología moderna. Disfruto trabajando en equipos colaborativos y siempre estoy buscando nuevos retos que me permitan crecer profesionalmente.',
+    location: 'Cartago - Valle del Cauca, Colombia',
     availability: 'Disponible para proyectos',
   },
   experience: {
@@ -44,7 +44,6 @@ export const es = {
       },
     ],
   },
-
   education: {
     title: 'Educación',
     subtitle: 'Mi formación académica y certificaciones',
@@ -238,49 +237,6 @@ export const es = {
         },
       },
     ],
-  },
-  skills: {
-    title: 'Habilidades',
-    subtitle: 'Tecnologías y herramientas que domino',
-    level: 'Nivel',
-    items: [
-      { name: 'Frontend Development' },
-      { name: 'UI/UX Design' },
-      { name: 'Mobile Development' },
-    ],
-  },
-  testimonials: {
-    title: 'Testimonios',
-    subtitle: 'Lo que dicen mis colegas y clientes sobre mi trabajo',
-    items: [
-      {
-        name: 'María González',
-        role: 'Product Manager',
-        company: 'Tech Solutions Inc.',
-        content:
-          'Trabajar con él ha sido excepcional. Su atención al detalle y capacidad para resolver problemas complejos es impresionante.',
-      },
-      {
-        name: 'Carlos Rodríguez',
-        role: 'CEO',
-        company: 'Digital Agency',
-        content:
-          'Un desarrollador talentoso que siempre entrega proyectos de alta calidad a tiempo. Altamente recomendado.',
-      },
-    ],
-  },
-  contact: {
-    title: 'Trabajemos Juntos',
-    subtitle: '¿Tienes un proyecto en mente? Me encantaría escuchar tus ideas',
-    formTitle: 'Contáctame',
-    formSubtitle: 'Envíame un mensaje y te responderé lo antes posible',
-    name: 'Nombre',
-    namePlaceholder: 'Tu nombre',
-    email: 'Email',
-    emailPlaceholder: 'tu@email.com',
-    message: 'Mensaje',
-    messagePlaceholder: 'Cuéntame sobre tu proyecto...',
-    send: 'Enviar Mensaje',
   },
   footer: {
     rights: 'Mi Portafolio. Todos los derechos reservados.',

@@ -50,7 +50,7 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
      hover:bg-primary/5 group`
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-md">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-md relative">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link
@@ -62,23 +62,18 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
           }}
           className="flex items-center space-x-3 group"
         >
-          <div
-            className="relative w-16 h-16 flex items-center justify-center
-                   rounded-xl shadow-lg transition-transform duration-300
-                   bg-gradient-to-br from-primary via-primary/80 to-primary/60
-                   group-hover:scale-105"
-          >
-            <Image src="/img/logo.webp" alt="Logo" fill className="rounded-xl object-contain" />
-
-            {/* Overlay con efecto hover */}
-            <div
-              className="absolute inset-0 rounded-xl 
-                     bg-gradient-to-br from-white/20 to-transparent 
-                     opacity-0 group-hover:opacity-100 
-                     transition-opacity duration-300"
+          <div className="relative w-16 h-16 flex items-center justify-center rounded-xl shadow-lg transition-transform duration-300 bg-gradient-to-br from-primary via-primary/80 to-primary/60 group-hover:scale-105">
+            <Image
+              src="/img/logo.webp"
+              alt="Foto de Kevin"
+              fill
+              sizes="(max-width: 768px) 100vw, 300px"
+              className="object-cover rounded-xl"
             />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
         </Link>
+
         {/* Navegación Desktop */}
         <nav className="hidden lg:flex items-center space-x-3">
           {navItems.map(item => (
@@ -88,8 +83,6 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
               className={linkClasses(item.key)}
             >
               {item.label}
-
-              {/* Línea animada debajo */}
               <motion.span
                 layoutId="underline"
                 className="absolute bottom-1 left-1/2 h-0.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
@@ -106,7 +99,6 @@ export function Navigation({ currentLocale, onLocaleChange }: LocaleProps) {
 
         {/* Controles (Idioma, Tema, Menú Móvil) */}
         <div className="flex items-center space-x-2">
-          {/* Idioma y tema (Desktop) */}
           <div className="hidden sm:flex items-center space-x-2">
             <LanguageToggle currentLocale={currentLocale} onLocaleChange={onLocaleChange} />
             <ThemeToggle />
