@@ -13,7 +13,7 @@ const blog = defineCollection({
 })
 
 const experience = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/experience' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -29,7 +29,7 @@ const experience = defineCollection({
 })
 
 const aboutme = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/aboutme' }),
   schema: z.object({
     title: z.string(),
     description1: z.string(),
@@ -40,7 +40,7 @@ const aboutme = defineCollection({
 })
 
 const footer = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/footer' }),
   schema: z.object({
     name: z.string(),
     year: z.number(),

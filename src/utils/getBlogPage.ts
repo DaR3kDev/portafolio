@@ -20,7 +20,7 @@ export async function getPageData<C extends CollectionName>(
 
   // Buscar página del idioma
   const page = pages.find(p => p.id.startsWith(`${lang}/`))
-  console.log(page)
+
   if (!page)
     throw new Error(`No existe contenido para la colección "${collection}" y el idioma: ${lang}`)
 
