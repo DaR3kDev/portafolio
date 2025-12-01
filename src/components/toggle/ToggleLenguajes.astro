@@ -1,0 +1,64 @@
+---
+import { Globe } from '@lucide/astro'
+import { languages } from '~/i18n/utils'
+---
+
+<div class="relative flex items-center">
+  <!-- Botón -->
+  <button
+    id="toggle-lenguajes"
+    type="button"
+    class="inline-flex items-center justify-center
+           w-9 h-9 sm:w-10 sm:h-10
+           rounded-lg
+           bg-white dark:bg-neutral-950
+           border border-black/10 dark:border-white/10
+           text-gray-700 dark:text-gray-300
+           hover:bg-black/5 dark:hover:bg-white/10
+           transition focus:outline-none"
+  >
+    <Globe class="w-4 h-4 sm:w-5 sm:h-5" />
+  </button>
+
+  <!-- Menú -->
+  <div
+    id="menu-lenguajes"
+    class="absolute right-0 top-full mt-2
+           w-20 sm:w-24
+           rounded-lg
+           bg-white dark:bg-neutral-950
+           border border-black/10 dark:border-white/10
+           shadow-lg
+           hidden overflow-hidden z-50"
+  >
+    {
+      Object.entries(languages).map(([lang, name]) => (
+        <a
+          href={lang}
+          class="block w-full text-center
+                 px-3 py-2
+                 text-xs sm:text-sm
+                 text-gray-800 dark:text-gray-300
+                 hover:bg-black/5 dark:hover:bg-white/10
+                 transition"
+        >
+          {name}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script is:inline>
+  const button = document.getElementById('toggle-lenguajes')
+  const menu = document.getElementById('menu-lenguajes')
+
+  button?.addEventListener('click', e => {
+    e.stopPropagation()
+    menu?.classList.toggle('hidden')
+  })
+
+  document.addEventListener('click', () => {
+    menu?.classList.add('hidden')
+  })
+</script>

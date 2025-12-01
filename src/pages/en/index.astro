@@ -1,0 +1,16 @@
+---
+import Layout from '~/layouts/Layout.astro'
+import HeroSections from '~/features/home/components/HeroSections.astro'
+import ExperienceSections from '~/features/home/components/ExperienceSections.astro'
+import ProjectSections from '~/features/home/components/ProjectSections'
+import EducationSections from '~/features/home/components/EducationSections.astro'
+import AboutMeSections from '~/features/home/components/AboutMeSections.astro'
+---
+
+<Layout>
+  <HeroSections />
+  <ExperienceSections />
+  <ProjectSections client:load />
+  <EducationSections />
+  <AboutMeSections />
+</Layout>

@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets'
+import Logo from '~/assets/image/me.webp'
+import { Github, Linkedin, Mail, Phone } from '@lucide/astro'
+import { getPageData } from '~/utils/getBlogPage'
+
+const data = await getPageData(Astro.url, 'blog')
+
+const socialLinks = [
+  { icon: Github, href: '#', label: 'Github' },
+  { icon: Linkedin, href: '#', label: 'Linkedin' },
+  { icon: Mail, href: '#', label: 'Correo' },
+  { icon: Phone, href: '#', label: 'Whatsapp' },
+]
+---
+
+<section
+  id="hero"
+  class="relative overflow-hidden flex items-center justify-center min-h-[calc(100vh-80px)] px-4 sm:px-6 lg:px-8"
+>
+  <div
+    class="flex flex-col-reverse md:flex-row items-center justify-between
+           w-full max-w-7xl mx-auto gap-12 sm:gap-16 md:gap-20"
+  >
+    <!-- TEXTO -->
+    <div
+      class="flex flex-col items-center md:items-start text-center md:text-left gap-6 sm:gap-8 md:gap-10"
+    >
+      <h1
+        class="font-semibold leading-tight
+               text-3xl sm:text-4xl md:text-6xl lg:text-7xl
+               tracking-tight text-gray-900 dark:text-white"
+      >
+        {data.greeting}
+        <span class="block font-bold text-gray-800 dark:text-gray-200">
+          {data.job}
+        </span>
+      </h1>
+
+      <p
+        class="text-gray-600 dark:text-gray-400
+               text-base sm:text-lg md:text-xl
+               leading-relaxed max-w-2xl"
+      >
+        {data.about}
+      </p>
+
+      <!-- BOTONES -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 md:gap-8">
+        <a
+          href="/cv.pdf"
+          download
+          class="inline-flex items-center justify-center
+                 px-6 py-3 text-sm sm:text-base font-medium
+                 text-white bg-gray-900 hover:bg-gray-800
+                 rounded-xl transition shadow-sm
+                 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+        >
+          <Phone class="w-4 h-4 mr-2" />
+          {data.cvButton}
+        </a>
+
+        <!-- Social Links -->
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
+          {
+            socialLinks.map(({ icon: Icon, href, label }) => (
+              <a
+                href={href}
+                aria-label={label}
+                class="relative group text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
+              >
+                <Icon class="w-5 h-5 sm:w-6 sm:h-6" />
+                <span
+                  class="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2
+                       rounded-md bg-gray-900 dark:bg-white px-2 py-1 text-xs
+                       text-white dark:text-black opacity-0 group-hover:opacity-100
+                       transition whitespace-nowrap"
+                >
+                  {label}
+                </span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGEN -->
+    <div class="flex flex-col items-center justify-center w-full md:w-auto gap-6 sm:gap-8">
+      <div
+        class="relative w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60 lg:w-64 lg:h-64
+               rounded-full overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800"
+      >
+        <Image src={Logo} alt="Foto de perfil" class="w-full h-full object-cover rounded-full" />
+      </div>
+
+      <!-- BADGE -->
+      <div class="flex items-center justify-center">
+        <span class="relative inline-flex overflow-hidden rounded-full p-px">
+          <span
+            class="absolute inset-[-1000%] animate-[spin_3s_linear_infinite]
+                   bg-[conic-gradient(from_90deg_at_50%_50%,#000_0%,#999_50%,#000_100%)]
+                   dark:bg-[conic-gradient(from_90deg_at_50%_50%,#fff_0%,#777_50%,#fff_100%)]"
+          ></span>
+
+          <div
+            class="inline-flex items-center justify-center
+                   px-4 py-2 text-xs sm:text-sm md:text-base
+                   text-black bg-white rounded-full
+                   cursor-pointer
+                   dark:bg-neutral-900 dark:text-white
+                   backdrop-blur-md whitespace-nowrap
+                   border border-black/20 dark:border-white/20"
+          >
+            {data.availability}
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
