@@ -5,10 +5,11 @@ import { Menu, X } from '@lucide/astro'
 import Logo from '~/assets/image/logo.webp'
 import ToggleDarkMode from '~/components/toggle/ToggleDarkMode.astro'
 import ToggleLenguajes from '~/components/toggle/ToggleLenguajes.astro'
-import { getLangFromUrl, useTranslations } from '~/i18n/ui'
+import { getLangFromUrl, useTranslatedPath, useTranslations } from '~/i18n/ui'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+const translatePath = useTranslatedPath(lang);
 
 const navbarItems = [
   { name: t('nav.home'), href: '#' },
@@ -35,7 +36,7 @@ const navbarItems = [
         {
           navbarItems.map(item => (
             <a
-              href={item.href}
+              href={translatePath(item.href)}
               class="text-sm font-medium text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors"
             >
               {item.name}

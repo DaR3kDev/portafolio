@@ -1,9 +1,10 @@
 export const languages = {
-  es: 'Español',
-  en: 'English',
-}
+  es: { code: 'es', name: 'Español' },
+  en: { code: 'en', name: 'English' },
+} as const
 
-export const defaultLang = 'en'
+export const defaultLang = 'es'
+export const showDefaultLang = false
 
 export const ui = {
   en: {
