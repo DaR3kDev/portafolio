@@ -55,4 +55,25 @@ const footer = defineCollection({
   }),
 })
 
-export const collections = { blog, experience, aboutme, footer }
+const education = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/education' }),
+  schema: z.object({
+    title: z.string(),
+    view: z.string(),
+    certification: z.string(),
+    diplomas: z.array(
+      z.object({
+        title: z.string(),
+        institution: z.string(),
+        type: z.string(),
+        description: z.string(),
+        date: z.string(),
+        skills: z.array(z.string()),
+        image: z.string().optional(),
+        file: z.string().optional(),
+      }),
+    ),
+  }),
+})
+
+export const collections = { blog, experience, education, aboutme, footer }

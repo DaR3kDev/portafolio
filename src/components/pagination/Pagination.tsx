@@ -1,25 +1,25 @@
 import { ChevronsLeft, ChevronsRight } from 'lucide-react'
-import { useStore } from '@nanostores/react'
-import { currentPage, projectsPerPage, nextPage, prevPage, setPage } from '~/stores/projectStore'
 import PaginationButton from '~/components/pagination/PaginationButton'
+import type { createPaginationStore } from '~/stores/paginationStore'
+import { useStore } from '@nanostores/react'
 
 interface PaginationProps {
   totalItems: number
+  itemsPerPage: number
+  paginationStore: ReturnType<typeof createPaginationStore>
 }
 
-export default function Pagination({ totalItems }: PaginationProps) {
-  const $currentPage = useStore(currentPage)
-  const $itemsPerPage = useStore(projectsPerPage)
-
-  const totalPages = Math.ceil(totalItems / $itemsPerPage)
+export default function Pagination({ totalItems, itemsPerPage, paginationStore }: PaginationProps) {
+  const $pagination = useStore(paginationStore.store)
+  const totalPages = Math.ceil(totalItems / itemsPerPage)
 
   if (totalPages <= 1) return null
 
   return (
     <div className="flex justify-center items-center gap-3 mt-8">
       <button
-        onClick={() => prevPage($currentPage)}
-        disabled={$currentPage === 1}
+        onClick={paginationStore.prevPage}
+        disabled={$pagination.currentPage === 1}
         className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 disabled:opacity-50"
       >
         <ChevronsLeft size={20} />
@@ -31,15 +31,15 @@ export default function Pagination({ totalItems }: PaginationProps) {
           <PaginationButton
             key={page}
             page={page}
-            isActive={$currentPage === page}
-            onClick={() => setPage(page)}
+            isActive={$pagination.currentPage === page}
+            onClick={() => paginationStore.setPage(page)}
           />
         )
       })}
 
       <button
-        onClick={() => nextPage(totalPages, $currentPage)}
-        disabled={$currentPage === totalPages}
+        onClick={paginationStore.nextPage}
+        disabled={$pagination.currentPage === totalPages}
         className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 disabled:opacity-50"
       >
         <ChevronsRight size={20} />

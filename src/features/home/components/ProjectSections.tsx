@@ -1,8 +1,9 @@
+import { useMemo, useState } from 'react'
 import { useStore } from '@nanostores/react'
 import Pagination from '~/components/pagination/Pagination'
 import ProjectCard from '~/features/proyect/components/ProjectCard'
 import TagButton from '~/features/proyect/components/TagButton'
-import { currentPage, currentTag, nextPage, prevPage, setPage, setTag } from '~/stores/projectStore'
+import { createPaginationStore } from '~/stores/paginationStore'
 
 export interface Project {
   title: string
@@ -138,16 +139,28 @@ const tags = ['Todos', 'Frontend', 'Backend', 'Fullstack']
 
 export default function ProjectSections() {
   const itemsPerPage = 6
-  const $currentTag = useStore(currentTag)
-  const $currentPage = useStore(currentPage)
+  const [currentTag, setCurrentTag] = useState('Todos')
 
-  const filteredProjects =
-    $currentTag === 'Todos' ? projects : projects.filter(p => p.tag === $currentTag)
+  const filteredProjects = useMemo(() => {
+    return currentTag === 'Todos' ? projects : projects.filter(p => p.tag === currentTag)
+  }, [currentTag])
+
+  const pagination = useMemo(() => {
+    const store = createPaginationStore(itemsPerPage, filteredProjects.length)
+    return store
+  }, [filteredProjects.length])
+
+  const $pagination = useStore(pagination.store)
 
   const pageProjects = filteredProjects.slice(
-    ($currentPage - 1) * itemsPerPage,
-    $currentPage * itemsPerPage,
+    ($pagination.currentPage - 1) * itemsPerPage,
+    $pagination.currentPage * itemsPerPage,
   )
+
+  const handleTagClick = (tag: string) => {
+    setCurrentTag(tag)
+    pagination.setPage(1)
+  }
 
   return (
     <section id="projects" className="py-16 lg:py-32 px-4 sm:px-6 lg:px-8">
@@ -162,19 +175,28 @@ export default function ProjectSections() {
       {/* Filtros */}
       <div className="flex flex-wrap justify-center gap-3 max-w-2xl mx-auto my-6">
         {tags.map(tag => (
-          <TagButton key={tag} tag={tag} isActive={$currentTag === tag} onClick={setTag} />
+          <TagButton
+            key={tag}
+            tag={tag}
+            isActive={currentTag === tag}
+            onClick={() => handleTagClick(tag)}
+          />
         ))}
       </div>
 
       {/* Proyectos */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
         {pageProjects.map(project => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard key={project.title + project.tag} project={project} />
         ))}
       </div>
 
-      {/* Paginacion */}
-      <Pagination totalItems={filteredProjects.length} />
+      {/* Paginación */}
+      <Pagination
+        totalItems={filteredProjects.length}
+        itemsPerPage={itemsPerPage}
+        paginationStore={pagination}
+      />
     </section>
   )
 }
