@@ -76,4 +76,12 @@ const education = defineCollection({
 	}),
 })
 
-export const collections = { blog, experience, education, aboutme, footer }
+const page404 = defineCollection({
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/404" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+	}),
+})
+
+export const collections = { blog, experience, education, aboutme, footer, page404 }

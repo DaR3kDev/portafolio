@@ -3,17 +3,6 @@ title: 'Diplomas and Certifications'
 view: View PDF
 certification: View Certification
 diplomas:
-  - title: 'Systems Engineering'
-    institution: 'Corporación de Estudios Tecnológicos del Norte del Valle'
-    type: 'Engineering'
-    description: 'Education focused on software development and systems architecture.'
-    date: '2024 - Present'
-    skills:
-      - Project Management
-      - Business Documentation
-    image: ''
-    file: ''
-
   - title: 'Software Analysis and Development'
     institution: 'SENA'
     type: 'Technologist'
@@ -30,38 +19,6 @@ diplomas:
       - Agile Methodologies
     image: 'certificacion-software.webp'
     file: '/pdf/ANALISIS Y DESARROLLO DE SOFTWARE.pdf'
-
-  - title: 'Network Services Administration on GNU/Linux Servers'
-    institution: 'SENA'
-    type: 'Course'
-    description: 'Management and administration of Linux servers, network configurations, and deployment of services in production environments.'
-    date: '2022'
-    skills:
-      - Linux
-      - Ubuntu
-    image: 'certificacion-server-linux.webp'
-    file: '/pdf/ADMINISTRACION DE SERVICIOS DE RED EN SISTEMAS OPERATIVOS GNU-LINUX SERVER.pdf'
-
-  - title: 'CCNA Exploration - Networking Basics'
-    institution: 'SENA'
-    type: 'Course'
-    description: 'Essential fundamentals of data networks, Cisco device configuration, and basic connectivity concepts.'
-    date: '2022'
-    skills:
-      - Cisco Networking
-    image: 'certificacion-ccna-exploration.webp'
-    file: '/pdf/CCNA EXPLORATION - ASPECTOS BÁSICOS DE NETWORKING.pdf'
-
-  - title: 'Server Virtualization'
-    institution: 'SENA'
-    type: 'Course'
-    description: 'Implementation of virtualized environments, management of virtual machines, and resource optimization on servers.'
-    date: '2022'
-    skills:
-      - VMware
-      - Virtualization
-    image: 'certifiacion-virtualizacion-servidor.webp'
-    file: '/pdf/VIRTUALIZACION DE SERVIDORES.pdf'
 
   - title: 'English Dot Works 1'
     institution: 'SENA'
