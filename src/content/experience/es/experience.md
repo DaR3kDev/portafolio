@@ -4,8 +4,9 @@ description: 'Mi trayectoria profesional'
 experience:
   - title: 'Desarrollador Backend Junior'
     company: 'Softtek'
-    date: '2024 - Actualidad'
+    date: '2025 - Actualidad'
     description: 'Soporte y mantenimiento de sistemas en producción basados en código legacy, además de documentación para usuarios no técnicos.'
+
   - title: 'Desarrollador Backend'
     company: 'Colombiana de Accesorios'
     date: '2024 - 2025'

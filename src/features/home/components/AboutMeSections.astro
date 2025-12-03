@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets'
-import Logo from '~/assets/image/me.webp'
-import { MapPin } from '@lucide/astro'
-import { getPageData } from '~/utils/getBlogPage'
+import { Image } from "astro:assets"
+import { MapPin } from "@lucide/astro"
+import Logo from "~/assets/image/me.webp"
+import { getPageData } from "~/utils/getBlogPage"
 
-const data = await getPageData(Astro.url, 'aboutme')
+const data = await getPageData(Astro.url, "aboutme")
 ---
 
 <section id="about" class="py-16 lg:py-32 px-4 sm:px-6 lg:px-8">

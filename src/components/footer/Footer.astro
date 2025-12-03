@@ -1,8 +1,8 @@
 ---
-import { Github, Linkedin, Mail, Phone } from '@lucide/astro'
-import { getPageData } from '~/utils/getBlogPage'
+import { Github, Linkedin, Mail, Phone } from "@lucide/astro"
+import { getPageData } from "~/utils/getBlogPage"
 
-const data = await getPageData(Astro.url, 'footer')
+const data = await getPageData(Astro.url, "footer")
 const iconsMap = { Github, Linkedin, Mail, Phone }
 const dateYear = new Date().getFullYear()
 ---

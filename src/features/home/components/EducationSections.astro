@@ -1,13 +1,13 @@
 ---
-import type { ImageMetadata } from 'astro'
-import { getPageData } from '~/utils/getBlogPage'
-import EducationGrid from '~/features/education/components/EducationGrid'
+import type { ImageMetadata } from "astro"
+import EducationGrid from "~/features/education/components/EducationGrid"
+import { getPageData } from "~/utils/getBlogPage"
 
-const images = import.meta.glob<{ default: ImageMetadata }>('~/assets/education/*.webp', {
-  eager: true,
+const images = import.meta.glob<{ default: ImageMetadata }>("~/assets/education/*.webp", {
+	eager: true,
 })
 
-const allEducation = await getPageData(Astro.url, 'education')
+const allEducation = await getPageData(Astro.url, "education")
 ---
 
 <section id="education" class="py-24 px-6 max-w-6xl mx-auto">

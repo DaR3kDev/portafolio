@@ -1,79 +1,79 @@
-import { glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { defineCollection, z } from "astro:content"
+import { glob } from "astro/loaders"
 
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: z.object({
-    greeting: z.string(),
-    job: z.string(),
-    about: z.string(),
-    cvButton: z.string(),
-    availability: z.string(),
-  }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
+	schema: z.object({
+		greeting: z.string(),
+		job: z.string(),
+		about: z.string(),
+		cvButton: z.string(),
+		availability: z.string(),
+	}),
 })
 
 const experience = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/experience' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    experience: z.array(
-      z.object({
-        title: z.string(),
-        company: z.string(),
-        date: z.string(),
-        description: z.string(),
-      }),
-    ),
-  }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/experience" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		experience: z.array(
+			z.object({
+				title: z.string(),
+				company: z.string(),
+				date: z.string(),
+				description: z.string(),
+			}),
+		),
+	}),
 })
 
 const aboutme = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/aboutme' }),
-  schema: z.object({
-    title: z.string(),
-    description1: z.string(),
-    description2: z.string(),
-    location: z.string(),
-    locationLabel: z.string(),
-  }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/aboutme" }),
+	schema: z.object({
+		title: z.string(),
+		description1: z.string(),
+		description2: z.string(),
+		location: z.string(),
+		locationLabel: z.string(),
+	}),
 })
 
 const footer = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/footer' }),
-  schema: z.object({
-    name: z.string(),
-    year: z.number(),
-    rights: z.string(),
-    links: z.array(
-      z.object({
-        name: z.string(),
-        href: z.string(),
-        icon: z.string(),
-      }),
-    ),
-  }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/footer" }),
+	schema: z.object({
+		name: z.string(),
+		year: z.number(),
+		rights: z.string(),
+		links: z.array(
+			z.object({
+				name: z.string(),
+				href: z.string(),
+				icon: z.string(),
+			}),
+		),
+	}),
 })
 
 const education = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/education' }),
-  schema: z.object({
-    title: z.string(),
-    view: z.string(),
-    certification: z.string(),
-    diplomas: z.array(
-      z.object({
-        title: z.string(),
-        institution: z.string(),
-        type: z.string(),
-        description: z.string(),
-        date: z.string(),
-        skills: z.array(z.string()),
-        image: z.string().optional(),
-        file: z.string().optional(),
-      }),
-    ),
-  }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/education" }),
+	schema: z.object({
+		title: z.string(),
+		view: z.string(),
+		certification: z.string(),
+		diplomas: z.array(
+			z.object({
+				title: z.string(),
+				institution: z.string(),
+				type: z.string(),
+				description: z.string(),
+				date: z.string(),
+				skills: z.array(z.string()),
+				image: z.string().optional(),
+				file: z.string().optional(),
+			}),
+		),
+	}),
 })
 
 export const collections = { blog, experience, education, aboutme, footer }

@@ -1,16 +1,16 @@
 ---
-import { Image } from 'astro:assets'
-import Logo from '~/assets/image/me.webp'
-import { Github, Linkedin, Mail, Phone } from '@lucide/astro'
-import { getPageData } from '~/utils/getBlogPage'
+import { Image } from "astro:assets"
+import { Github, Linkedin, Mail, Phone } from "@lucide/astro"
+import Logo from "~/assets/image/me.webp"
+import { getPageData } from "~/utils/getBlogPage"
 
-const data = await getPageData(Astro.url, 'blog')
+const data = await getPageData(Astro.url, "blog")
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'Github' },
-  { icon: Linkedin, href: '#', label: 'Linkedin' },
-  { icon: Mail, href: '#', label: 'Correo' },
-  { icon: Phone, href: '#', label: 'Whatsapp' },
+	{ icon: Github, href: "#", label: "Github" },
+	{ icon: Linkedin, href: "#", label: "Linkedin" },
+	{ icon: Mail, href: "#", label: "Correo" },
+	{ icon: Phone, href: "#", label: "Whatsapp" },
 ]
 ---
 

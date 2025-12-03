@@ -1,23 +1,23 @@
 ---
-import { Image } from 'astro:assets'
-import { Menu, X } from '@lucide/astro'
+import { Image } from "astro:assets"
+import { Menu, X } from "@lucide/astro"
 
-import Logo from '~/assets/image/logo.webp'
-import ToggleDarkMode from '~/components/toggle/ToggleDarkMode.astro'
-import ToggleLenguajes from '~/components/toggle/ToggleLenguajes.astro'
-import { getLangFromUrl, useTranslatedPath, useTranslations } from '~/i18n/ui'
+import Logo from "~/assets/image/logo.webp"
+import ToggleDarkMode from "~/components/toggle/ToggleDarkMode.astro"
+import ToggleLenguajes from "~/components/toggle/ToggleLenguajes.astro"
+import { getLangFromUrl, getTranslatedPath, getTranslations } from "~/i18n/ui"
 
 const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-const translatePath = useTranslatedPath(lang);
+const t = getTranslations(lang)
+const translatePath = getTranslatedPath(lang)
 
 const navbarItems = [
-  { name: t('nav.home'), href: '#' },
-  { name: t('nav.experience'), href: '#experience' },
-  { name: t('nav.projects'), href: '#projects' },
-  { name: t('nav.education'), href: '#education' },
-  { name: t('nav.about'), href: '#about' },
-  { name: t('nav.contact'), href: 'mailto:kevinvilleperez@gmail.com' },
+	{ name: t("nav.home"), href: "#" },
+	{ name: t("nav.experience"), href: "#experience" },
+	{ name: t("nav.projects"), href: "#projects" },
+	{ name: t("nav.education"), href: "#education" },
+	{ name: t("nav.about"), href: "#about" },
+	{ name: t("nav.contact"), href: "mailto:kevinvilleperez@gmail.com" },
 ]
 ---
 
