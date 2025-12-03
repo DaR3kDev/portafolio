@@ -10,7 +10,7 @@
 		"lint": "biome lint .",
 		"format": "biome format . --write",
 		"check": "biome check . --write",
-		"prepare": "lefthook install"
+		"prepare": "node -e \"if (!process.env.CI) require('child_process').execSync('lefthook install', { stdio: 'inherit' })\""
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^4.3.12",
