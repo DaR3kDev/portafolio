@@ -7,10 +7,22 @@ import { getPageData } from "~/utils/getBlogPage"
 const data = await getPageData(Astro.url, "blog")
 
 const socialLinks = [
-	{ icon: Github, href: "#", label: "Github" },
-	{ icon: Linkedin, href: "#", label: "Linkedin" },
-	{ icon: Mail, href: "#", label: "Correo" },
-	{ icon: Phone, href: "#", label: "Whatsapp" },
+	{ icon: Github, href: "https://github.com/DaR3kDev", label: "Github" },
+	{
+		icon: Linkedin,
+		href: "https://www.linkedin.com/in/kevin-villegas-666bb61ab/",
+		label: "Linkedin",
+	},
+	{
+		icon: Mail,
+		href: "mailto:kevinvilleperez@gmail.com",
+		label: "Correo",
+	},
+	{
+		icon: Phone,
+		href: "https://wa.me/573173552802",
+		label: "Whatsapp",
+	},
 ]
 ---
 

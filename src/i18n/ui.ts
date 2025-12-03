@@ -16,6 +16,15 @@ export function getTranslations(lang: keyof typeof ui) {
 
 export function getTranslatedPath(lang: keyof typeof ui) {
 	return function translatePath(path: string, l: string = lang) {
+		if (
+			path.startsWith("mailto:") ||
+			path.startsWith("http://") ||
+			path.startsWith("https://") ||
+			path.startsWith("#")
+		) {
+			return path
+		}
+
 		const normalizedPath = path.startsWith("/") ? path : `/${path}`
 
 		if (!showDefaultLang && l === defaultLang) return normalizedPath
