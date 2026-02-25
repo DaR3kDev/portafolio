@@ -11,33 +11,19 @@ export interface Project {
 	techs: string[]
 	tag: string
 	img: string
+	gitUrl: string
 	url: string
 }
 
 const projects: Project[] = [
 	{
-		title: "Proyecto 1",
-		description: "Descripción 1",
-		techs: ["Tech1", "Tech2"],
+		title: "Rustlings Web",
+		description: 'Web para aprender Rust aportando ejercicios acorde con el libro "The Rust Programming Language"',
+		techs: ["Astro", "Tailwind CSS"],
 		tag: "Frontend",
-		url: "https://github.com/usuario/proyecto1",
-		img: "/imagen.jpg",
-	},
-	{
-		title: "Proyecto 1",
-		description: "Descripción 1",
-		techs: ["Tech1", "Tech2"],
-		tag: "Frontend",
-		url: "https://github.com/usuario/proyecto1",
-		img: "/imagen.jpg",
-	},
-	{
-		title: "Proyecto 1",
-		description: "Descripción 1",
-		techs: ["Tech1", "Tech2"],
-		tag: "Frontend",
-		url: "https://github.com/usuario/proyecto1",
-		img: "/imagen.jpg",
+		gitUrl: "https://github.com/RustLangES/rustlings-web/tree/main",
+		url: "https://rustlings.rustlang-es.org/",
+		img: "./img/rustlings-web.webp",
 	},
 ]
 

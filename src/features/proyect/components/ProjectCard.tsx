@@ -1,11 +1,11 @@
 import { Github, SquareArrowOutUpRight } from "lucide-react"
 import type { Project } from "~/features/home/components/ProjectSections"
 
-interface Props {
+interface ProjectCardProps {
 	project: Project
 }
 
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
 		<div className="group w-full max-w-sm overflow-hidden border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl hover:border-gray-900 dark:hover:border-white transition-all duration-300 hover:-translate-y-2 rounded-2xl">
 			<div className="relative w-full aspect-video overflow-hidden rounded-t-2xl">
@@ -13,7 +13,7 @@ export default function ProjectCard({ project }: Props) {
 
 				<div className="absolute inset-0 bg-black/50 dark:bg-white/20 opacity-100 backdrop-blur-sm flex items-center justify-center gap-3">
 					<a
-						href={project.url}
+						href={project.gitUrl}
 						className="px-2 py-1 bg-gray-900 text-white text-xs rounded shadow hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors"
 					>
 						<Github />

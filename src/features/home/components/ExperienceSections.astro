@@ -3,6 +3,13 @@ import { Briefcase } from "@lucide/astro"
 import { getPageData } from "~/utils/getBlogPage"
 
 const data = await getPageData(Astro.url, "experience")
+
+interface ExperienceItem {
+	title: string
+	company: string
+	date: string
+	description: string
+}
 ---
 
 <section id="experience" class="py-16 lg:py-32 px-4 sm:px-6 lg:px-8">
@@ -25,7 +32,7 @@ const data = await getPageData(Astro.url, "experience")
 
     <div class="flex flex-col w-full max-w-4xl space-y-12 relative z-10">
       {
-        data.experience.map((item, index) => (
+        data.experience.map((item: ExperienceItem, index: number) => (
           <div
             class={`relative flex flex-col md:flex-row md:items-start ${
               index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'

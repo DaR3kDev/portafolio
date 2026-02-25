@@ -2,10 +2,9 @@
 title: 'Experience'
 description: 'My professional background'
 experience:
-
   - title: 'Junior Backend Developer'
     company: 'Softtek'
-    date: '2025 - Present'
+    date: '2025 - 2026'
     description: 'Support and maintenance of production systems based on legacy code, along with documentation for non-technical users.'
 
   - title: 'Backend Developer'

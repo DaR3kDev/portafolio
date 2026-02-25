@@ -1,10 +1,10 @@
-interface Props {
+interface TagButtonProps {
 	tag: string
 	isActive: boolean
 	onClick: (tag: string) => void
 }
 
-export default function TagButton({ tag, isActive, onClick }: Props) {
+export default function TagButton({ tag, isActive, onClick }: TagButtonProps) {
 	return (
 		<button
 			onClick={() => onClick(tag)}
