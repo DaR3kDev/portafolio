@@ -10,10 +10,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>("~/assets/education/
 const allEducation = await getPageData(Astro.url, "education")
 ---
 
-<section id="education" class="py-24 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-    {allEducation.title}
-  </h2>
+<section id="education" class="py-16 sm:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+  <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+    <h2
+      class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white"
+    >
+      {allEducation.title}
+    </h2>
+  </div>
 
+  <!-- Grid -->
   <EducationGrid diplomas={allEducation.diplomas} images={images} client:load />
 </section>

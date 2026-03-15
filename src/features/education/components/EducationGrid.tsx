@@ -19,7 +19,9 @@ interface DiplomaGridProps {
 
 export default function DiplomaGrid({ diplomas, images }: DiplomaGridProps) {
 	const itemsPerPage = 6
+
 	const pagination = useMemo(() => createPaginationStore(itemsPerPage, diplomas.length), [diplomas.length])
+
 	const $pagination = useStore(pagination.store)
 
 	const [activeImage, setActiveImage] = useState<string | null>(null)
@@ -30,34 +32,41 @@ export default function DiplomaGrid({ diplomas, images }: DiplomaGridProps) {
 	)
 
 	return (
-		<div>
-			<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div className="space-y-12">
+			{/* GRID */}
+			<div className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
 				{paginatedDiplomas.map((d) => (
 					<article
 						key={d.title}
-						className="bg-white dark:bg-zinc-900 rounded-2xl shadow hover:shadow-xl transition overflow-hidden"
+						className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
 					>
+						{/* IMAGE */}
 						{d.image && images[`/src/assets/education/${d.image}`] && (
 							<button
 								type="button"
 								onClick={() => setActiveImage(images[`/src/assets/education/${d.image}`].default.src)}
-								className="w-full"
+								className="w-full group"
 							>
 								<img
 									src={images[`/src/assets/education/${d.image}`].default.src}
 									alt={d.title}
-									className="w-full h-48 object-cover"
+									className="w-full h-44 sm:h-48 object-cover group-hover:scale-105 transition duration-300"
 								/>
 							</button>
 						)}
 
-						<div className="p-5 space-y-2">
-							<h3 className="font-semibold text-lg">{d.title}</h3>
-							{d.institution && <p className="text-sm opacity-70">{d.institution}</p>}
-							{d.description && <p className="text-sm opacity-70">{d.description}</p>}
-							{d.date && <p className="text-xs opacity-50">{d.date}</p>}
+						{/* CONTENT */}
+						<div className="p-5 space-y-3">
+							<h3 className="font-semibold text-base sm:text-lg text-gray-900 dark:text-white">{d.title}</h3>
 
-							<div className="flex gap-4 pt-2">
+							{d.institution && <p className="text-sm text-gray-600 dark:text-gray-400">{d.institution}</p>}
+
+							{d.description && <p className="text-sm text-gray-600 dark:text-gray-400">{d.description}</p>}
+
+							{d.date && <p className="text-xs text-gray-500 dark:text-gray-500">{d.date}</p>}
+
+							{/* ACTIONS */}
+							<div className="flex flex-wrap gap-4 pt-2">
 								{d.file && (
 									<a
 										href={d.file}
@@ -68,6 +77,7 @@ export default function DiplomaGrid({ diplomas, images }: DiplomaGridProps) {
 										View PDF
 									</a>
 								)}
+
 								{d.image && (
 									<button
 										type="button"
@@ -83,14 +93,23 @@ export default function DiplomaGrid({ diplomas, images }: DiplomaGridProps) {
 				))}
 			</div>
 
-			<Pagination totalItems={diplomas.length} itemsPerPage={itemsPerPage} paginationStore={pagination} />
+			{/* PAGINATION */}
+			<div className="flex justify-center">
+				<Pagination totalItems={diplomas.length} itemsPerPage={itemsPerPage} paginationStore={pagination} />
+			</div>
+
+			{/* MODAL IMAGE */}
 			{activeImage && (
 				<button
 					type="button"
 					onClick={() => setActiveImage(null)}
-					className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-50 cursor-pointer"
+					className="fixed inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm z-50 p-4 cursor-pointer"
 				>
-					<img src={activeImage} alt="Diploma Preview" className="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl" />
+					<img
+						src={activeImage}
+						alt="Diploma Preview"
+						className="max-h-[90vh] max-w-[95vw] sm:max-w-[80vw] rounded-xl shadow-2xl"
+					/>
 				</button>
 			)}
 		</div>
