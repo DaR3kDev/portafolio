@@ -1,10 +1,12 @@
 ---
 import { Globe } from "@lucide/astro"
-import { getLangFromUrl, getTranslatedPath } from "~/i18n/ui"
-import { languages } from "~/i18n/utils"
+import { type Lang, languages } from "~/i18n/config"
+import { getLangFromUrl, getTranslatedPath } from "~/i18n/utils"
 
 const lang = getLangFromUrl(Astro.url)
 const translatePath = getTranslatedPath(lang)
+
+const locales = Object.values(languages)
 ---
 
 <div class="relative flex items-center">
@@ -36,9 +38,9 @@ const translatePath = getTranslatedPath(lang)
            hidden overflow-hidden z-50"
   >
     {
-      Object.values(languages).map(locale => (
+      locales.map(locale => (
         <a
-          href={translatePath('/', locale.code)}
+          href={translatePath('/', locale.code as Lang)}
           class="block w-full text-center
                  px-3 py-2
                  text-xs sm:text-sm

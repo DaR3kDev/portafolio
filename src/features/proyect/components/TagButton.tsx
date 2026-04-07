@@ -1,7 +1,9 @@
+import type { ProjectTag } from "~/features/proyect/model/types"
+
 interface TagButtonProps {
-	tag: string
+	tag: ProjectTag
 	isActive: boolean
-	onClick: (tag: string) => void
+	onClick: (tag: ProjectTag) => void
 }
 
 export default function TagButton({ tag, isActive, onClick }: TagButtonProps) {

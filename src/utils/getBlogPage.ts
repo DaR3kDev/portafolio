@@ -1,7 +1,7 @@
 import type { CollectionEntry } from "astro:content"
 import { getCollection } from "astro:content"
 import type { collections } from "~/content.config"
-import { getLangFromUrl } from "~/i18n/ui"
+import { getLangFromUrl } from "~/i18n/utils"
 
 type CollectionName = keyof typeof collections
 

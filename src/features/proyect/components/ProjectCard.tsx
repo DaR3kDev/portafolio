@@ -1,5 +1,5 @@
 import { Github, SquareArrowOutUpRight } from "lucide-react"
-import type { Project } from "~/features/home/components/ProjectSections"
+import type { Project } from "~/features/proyect/model/types"
 
 interface ProjectCardProps {
 	project: Project

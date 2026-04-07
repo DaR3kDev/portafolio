@@ -2,8 +2,10 @@
 import { Image } from "astro:assets"
 import { Github, Linkedin, Mail, Phone } from "@lucide/astro"
 import Logo from "~/assets/image/me.webp"
+import { getLangFromUrl } from "~/i18n/utils"
 import { getPageData } from "~/utils/getBlogPage"
 
+const lang = getLangFromUrl(Astro.url)
 const data = await getPageData(Astro.url, "blog")
 
 const socialLinks = [
@@ -24,6 +26,8 @@ const socialLinks = [
 		label: "Whatsapp",
 	},
 ]
+
+const cvPath = lang === "es" ? "/pdf/cv/CVKevin.pdf" : "/pdf/cv/CVKevin-English.pdf"
 ---
 
 <section
@@ -53,7 +57,7 @@ const socialLinks = [
       <!-- BOTONES -->
       <div class="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 md:gap-8">
         <a
-          href="/pdf/CVKevin.pdf"
+          href={cvPath}
           download
           class="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-xl transition shadow-sm dark:bg-white dark:text-black dark:hover:bg-gray-200"
         >

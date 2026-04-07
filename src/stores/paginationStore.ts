@@ -1,4 +1,3 @@
-// src/stores/paginationStore.ts
 import { atom } from "nanostores"
 
 export interface PaginationStore {

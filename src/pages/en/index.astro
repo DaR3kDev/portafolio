@@ -3,14 +3,14 @@ import AboutMeSections from "~/features/home/components/AboutMeSections.astro"
 import EducationSections from "~/features/home/components/EducationSections.astro"
 import ExperienceSections from "~/features/home/components/ExperienceSections.astro"
 import HeroSections from "~/features/home/components/HeroSections.astro"
-import ProjectSections from "~/features/home/components/ProjectSections"
+import ProjectSection from "~/features/proyect/components/ProjectSection"
 import Layout from "~/layouts/Layout.astro"
 ---
 
 <Layout>
   <HeroSections />
   <ExperienceSections />
-  <ProjectSections client:load />
+  <ProjectSection client:load />
   <EducationSections />
   <AboutMeSections />
 </Layout>
