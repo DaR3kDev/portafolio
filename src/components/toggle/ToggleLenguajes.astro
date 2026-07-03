@@ -1,5 +1,5 @@
 ---
-import { Globe } from "@lucide/astro"
+import { IconLanguage } from "@tabler/icons-react"
 import { type Lang, languages } from "~/i18n/config"
 import { getLangFromUrl, getTranslatedPath } from "~/i18n/utils"
 
@@ -23,7 +23,7 @@ const locales = Object.values(languages)
            hover:bg-black/5 dark:hover:bg-white/10
            transition focus:outline-none"
   >
-    <Globe class="w-4 h-4 sm:w-5 sm:h-5" />
+    <IconLanguage className="w-4 h-4 sm:w-5 sm:h-5" />
   </button>
 
   <!-- Menú -->

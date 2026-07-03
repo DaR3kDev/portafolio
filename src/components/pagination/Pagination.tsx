@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react"
-import { ChevronsLeft, ChevronsRight } from "lucide-react"
+import { IconChevronsLeft, IconChevronsRight } from "@tabler/icons-react"
 import PaginationButton from "~/components/pagination/PaginationButton"
 import type { createPaginationStore } from "~/stores/paginationStore"
 
@@ -23,7 +23,7 @@ export default function Pagination({ totalItems, itemsPerPage, paginationStore }
 				disabled={$pagination.currentPage === 1}
 				className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 disabled:opacity-50"
 			>
-				<ChevronsLeft size={20} />
+				<IconChevronsLeft size={20} />
 			</button>
 
 			{[...Array(totalPages)].map((_, i) => {
@@ -44,7 +44,7 @@ export default function Pagination({ totalItems, itemsPerPage, paginationStore }
 				disabled={$pagination.currentPage === totalPages}
 				className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 disabled:opacity-50"
 			>
-				<ChevronsRight size={20} />
+				<IconChevronsRight size={20} />
 			</button>
 		</div>
 	)

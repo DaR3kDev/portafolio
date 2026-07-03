@@ -38,6 +38,27 @@ const blog = defineCollection({
 	}),
 })
 
+const projects = defineCollection({
+	loader: createLoader("./src/content/projects"),
+	schema: z.object({
+		title: z.string(),
+		subtitle: z.string(),
+		viewProject: z.string(),
+		projects: z.array(
+			z.object({
+				title: z.string(),
+				description: z.string(),
+				techs: z.array(z.string()),
+				tag: z.enum(["Frontend", "Backend", "Fullstack"]),
+				gitUrl: z.string().optional(),
+				url: z.string().optional(),
+				img: z.string(),
+				featured: z.boolean().default(false),
+			}),
+		),
+	}),
+})
+
 const experience = defineCollection({
 	loader: createLoader("./src/content/experience"),
 	schema: z.object({
@@ -88,6 +109,7 @@ const page404 = defineCollection({
 
 export const collections = {
 	blog,
+	projects,
 	experience,
 	education,
 	aboutme,

@@ -1,28 +1,32 @@
 import { useStore } from "@nanostores/react"
 import { useMemo, useState } from "react"
 import { createPaginationStore } from "~/stores/paginationStore"
-import { projects } from "./data"
-import type { ProjectTag } from "./types"
+import type { Project, ProjectTag } from "./types"
 
-export function useProjects(itemsPerPage: number) {
+export function useProjects(projects: Project[], itemsPerPage: number) {
 	const [currentTag, setCurrentTag] = useState<ProjectTag>("Todos")
 
 	const filteredProjects = useMemo(() => {
-		return currentTag === "Todos" ? projects : projects.filter((p) => p.tag === currentTag)
-	}, [currentTag])
+		if (currentTag === "Todos") {
+			return projects
+		}
 
-	const pagination = useMemo(() => {
-		return createPaginationStore(itemsPerPage, filteredProjects.length)
-	}, [filteredProjects.length, itemsPerPage])
+		return projects.filter((project) => project.tag === currentTag)
+	}, [projects, currentTag])
 
-	const $pagination = useStore(pagination.store)
-
-	const pageProjects = filteredProjects.slice(
-		($pagination.currentPage - 1) * itemsPerPage,
-		$pagination.currentPage * itemsPerPage,
+	const pagination = useMemo(
+		() => createPaginationStore(itemsPerPage, filteredProjects.length),
+		[itemsPerPage, filteredProjects.length],
 	)
 
-	const handleTagClick = (tag: ProjectTag) => {
+	const { currentPage } = useStore(pagination.store)
+
+	const start = (currentPage - 1) * itemsPerPage
+	const end = start + itemsPerPage
+
+	const pageProjects = filteredProjects.slice(start, end)
+
+	function handleTagClick(tag: ProjectTag) {
 		setCurrentTag(tag)
 		pagination.setPage(1)
 	}

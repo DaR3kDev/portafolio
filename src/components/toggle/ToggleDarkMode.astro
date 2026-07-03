@@ -1,5 +1,5 @@
 ---
-import { Moon, Sun } from "@lucide/astro"
+import { IconMoon, IconSun } from "@tabler/icons-react"
 ---
 
 <button
@@ -16,10 +16,14 @@ import { Moon, Sun } from "@lucide/astro"
          focus:outline-none"
 >
   <!-- Icono Sol -->
-  <Sun class="absolute w-4 h-4 sm:w-5 sm:h-5 hidden dark:block text-gray-800 dark:text-gray-200" />
+  <IconSun
+    className="absolute w-4 h-4 sm:w-5 sm:h-5 hidden dark:block text-gray-800 dark:text-gray-200"
+  />
 
   <!-- Icono Luna -->
-  <Moon class="absolute w-4 h-4 sm:w-5 sm:h-5 block dark:hidden text-gray-800 dark:text-gray-200" />
+  <IconMoon
+    className="absolute w-4 h-4 sm:w-5 sm:h-5 block dark:hidden text-gray-800 dark:text-gray-200"
+  />
 </button>
 
 <script>

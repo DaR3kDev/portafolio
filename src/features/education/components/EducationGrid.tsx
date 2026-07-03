@@ -73,6 +73,7 @@ export default function DiplomaGrid({ diplomas, images }: DiplomaGridProps) {
 										download
 										target="_blank"
 										className="text-sm font-medium text-blue-500 hover:underline"
+										rel="noopener"
 									>
 										View PDF
 									</a>

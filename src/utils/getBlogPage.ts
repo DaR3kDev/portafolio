@@ -12,17 +12,26 @@ export async function getPageData<C extends CollectionName>(
 	url: URL,
 	collection: C,
 ): Promise<CollectionEntry<C>["data"]> {
-	// Detectar idioma
 	const lang = getLangFromUrl(url)
-
-	// Obtener colección completa
 	const pages = await getCollection(collection)
 
-	// Buscar página del idioma
-	const page = pages.find((p) => p.id.startsWith(`${lang}/`))
+	console.log("Collection:", collection)
+	console.log("Lang:", lang)
+	console.log(
+		"Ids:",
+		pages.map((page) => page.id),
+	)
 
-	if (!page) throw new Error(`No existe contenido para la colección "${collection}" y el idioma: ${lang}`)
+	const page = pages.find((page) => {
+		const pageLang = page.id.split("/")[0]
+		return pageLang === lang
+	})
 
-	// Retornar solo data
+	console.log("Page encontrada:", page)
+
+	if (!page) {
+		throw new Error(`No existe contenido para la colección "${collection}" para el idioma "${lang}".`)
+	}
+
 	return page.data
 }

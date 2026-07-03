@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { Menu, X } from "@lucide/astro"
+import { IconMenu2, IconX } from "@tabler/icons-react"
 
 import Logo from "~/assets/image/logo.webp"
 import ToggleDarkMode from "~/components/toggle/ToggleDarkMode.astro"
@@ -23,26 +23,22 @@ const navbarItems = [
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 w-full z-50
-  bg-white/5 dark:bg-black/20
-  backdrop-blur-md
-  border-b border-white/10
-  transition-all duration-300"
+  class="fixed top-0 left-0 z-50 w-full border-b border-black/10 bg-white/80 backdrop-blur-md transition-all duration-300 dark:border-white/10 dark:bg-neutral-950/80"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <!-- Logo -->
-      <div class="flex items-center shrink-0">
+      <div class="shrink-0">
         <Image src={Logo} alt="Logo" class="h-10 w-10 rounded-full object-cover" />
       </div>
 
       <!-- Desktop Menu -->
-      <div class="hidden md:flex flex-1 justify-center gap-8">
+      <div class="hidden flex-1 justify-center gap-8 md:flex">
         {
           navbarItems.map(item => (
             <a
               href={translatePath(item.href)}
-              class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300"
+              class="nav-link text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-black dark:text-gray-300 dark:hover:text-white"
             >
               {item.name}
             </a>
@@ -50,19 +46,18 @@ const navbarItems = [
         }
       </div>
 
-      <!-- Right Controls -->
+      <!-- Controls -->
       <div class="flex items-center gap-3">
         <ToggleLenguajes />
         <ToggleDarkMode />
 
-        <!-- Mobile Button -->
         <button
           id="menu-btn"
-          class="md:hidden text-gray-300 hover:text-white transition"
+          class="text-gray-700 transition hover:text-black dark:text-gray-300 dark:hover:text-white md:hidden"
           aria-label="Toggle Menu"
         >
-          <Menu id="icon-open" class="w-6 h-6" />
-          <X id="icon-close" class="w-6 h-6 hidden" />
+          <IconMenu2 id="icon-open" className="h-6 w-6" />
+          <IconX id="icon-close" className="hidden h-6 w-6" />
         </button>
       </div>
     </div>
@@ -71,17 +66,14 @@ const navbarItems = [
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden
-    bg-white/90 dark:bg-neutral-950/90
-    backdrop-blur-md
-    border-t border-black/10 dark:border-white/10"
+    class="hidden border-t border-black/10 bg-white/95 backdrop-blur-md dark:border-white/10 dark:bg-neutral-950/95 md:hidden"
   >
-    <div class="px-6 py-6 flex flex-col gap-6 text-center">
+    <div class="flex flex-col gap-6 px-6 py-6 text-center">
       {
         navbarItems.map(item => (
           <a
-            href={item.href}
-            class="mobile-link nav-link text-base font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors duration-300"
+            href={translatePath(item.href)}
+            class="mobile-link nav-link text-base font-medium text-gray-700 transition-colors duration-300 hover:text-black dark:text-gray-300 dark:hover:text-white"
           >
             {item.name}
           </a>
@@ -92,8 +84,6 @@ const navbarItems = [
 </nav>
 
 <script is:inline>
-  /* MENU MOBILE */
-
   const menuBtn = document.getElementById('menu-btn')
   const mobileMenu = document.getElementById('mobile-menu')
   const iconOpen = document.getElementById('icon-open')
@@ -113,35 +103,48 @@ const navbarItems = [
     })
   })
 
-  /* NAVBAR SCROLL EFFECT */
-
   const navbar = document.getElementById('navbar')
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
-      navbar.classList.add('bg-white/80', 'dark:bg-neutral-950/80', 'shadow-md')
+      navbar?.classList.add('shadow-md')
     } else {
-      navbar.classList.remove('bg-white/80', 'dark:bg-neutral-950/80', 'shadow-md')
+      navbar?.classList.remove('shadow-md')
     }
   })
 
   const sections = document.querySelectorAll('section')
   const navLinks = document.querySelectorAll('.nav-link')
 
-  window.addEventListener('scroll', () => {
+  function updateActiveLink() {
     let current = ''
 
     sections.forEach(section => {
       const sectionTop = section.offsetTop
       const sectionHeight = section.clientHeight
 
-      if (scrollY >= sectionTop - 200) current = section.getAttribute('id')
+      if (window.scrollY >= sectionTop - 200 && window.scrollY < sectionTop + sectionHeight - 200) {
+        current = section.id
+      }
     })
 
     navLinks.forEach(link => {
-      link.classList.remove('text-white')
+      link.classList.remove(
+        'text-black',
+        'text-white',
+        'dark:text-white',
+        'dark:text-gray-300',
+        'text-gray-700',
+      )
 
-      if (link.getAttribute('href') === '#' + current) link.classList.add('text-white')
+      if (link.getAttribute('href')?.includes('#' + current)) {
+        link.classList.add('text-black', 'dark:text-white')
+      } else {
+        link.classList.add('text-gray-700', 'dark:text-gray-300')
+      }
     })
-  })
+  }
+
+  window.addEventListener('scroll', updateActiveLink)
+  updateActiveLink()
 </script>

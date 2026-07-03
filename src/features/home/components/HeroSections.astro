@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { Github, Linkedin, Mail, Phone } from "@lucide/astro"
+import { IconBrandGithub, IconBrandLinkedin, IconMail, IconPhone } from "@tabler/icons-react"
 import Logo from "~/assets/image/me.webp"
 import { getLangFromUrl } from "~/i18n/utils"
 import { getPageData } from "~/utils/getBlogPage"
@@ -9,19 +9,19 @@ const lang = getLangFromUrl(Astro.url)
 const data = await getPageData(Astro.url, "blog")
 
 const socialLinks = [
-	{ icon: Github, href: "https://github.com/DaR3kDev", label: "Github" },
+	{ icon: IconBrandGithub, href: "https://github.com/DaR3kDev", label: "Github" },
 	{
-		icon: Linkedin,
+		icon: IconBrandLinkedin,
 		href: "https://www.linkedin.com/in/kevin-villegas-666bb61ab/",
 		label: "Linkedin",
 	},
 	{
-		icon: Mail,
+		icon: IconMail,
 		href: "mailto:kevinvilleperez@gmail.com",
 		label: "Correo",
 	},
 	{
-		icon: Phone,
+		icon: IconPhone,
 		href: "https://wa.me/573173552802",
 		label: "Whatsapp",
 	},
@@ -61,7 +61,7 @@ const cvPath = lang === "es" ? "/pdf/cv/CVKevin.pdf" : "/pdf/cv/CVKevin-English.
           download
           class="inline-flex items-center justify-center px-6 py-3 text-sm sm:text-base font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-xl transition shadow-sm dark:bg-white dark:text-black dark:hover:bg-gray-200"
         >
-          <Phone class="w-4 h-4 mr-2" />
+          <IconPhone className="w-4 h-4 mr-2" />
           {data.cvButton}
         </a>
 
@@ -76,7 +76,7 @@ const cvPath = lang === "es" ? "/pdf/cv/CVKevin.pdf" : "/pdf/cv/CVKevin-English.
                 rel="noopener noreferrer"
                 class="relative group text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition"
               >
-                <Icon class="w-5 h-5 sm:w-6 sm:h-6" />
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
 
                 <span class="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 rounded-md bg-gray-900 dark:bg-white px-2 py-1 text-xs text-white dark:text-black opacity-0 group-hover:opacity-100 transition whitespace-nowrap">
                   {label}

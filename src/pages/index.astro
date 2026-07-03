@@ -1,16 +1,27 @@
 ---
+import { getEntry } from "astro:content"
 import AboutMeSections from "~/features/home/components/AboutMeSections.astro"
 import EducationSections from "~/features/home/components/EducationSections.astro"
 import ExperienceSections from "~/features/home/components/ExperienceSections.astro"
 import HeroSections from "~/features/home/components/HeroSections.astro"
 import ProjectSection from "~/features/proyect/components/ProjectSection"
+import type { Project } from "~/features/proyect/model/types"
 import Layout from "~/layouts/Layout.astro"
+import { getPageData } from "~/utils/getBlogPage"
+
+const data = await getPageData(Astro.url, "projects")
 ---
 
 <Layout>
   <HeroSections />
   <ExperienceSections />
-  <ProjectSection client:load />
+  <ProjectSection
+    title={data.title}
+    subtitle={data.subtitle}
+    viewProject={data.viewProject}
+    projects={data.projects as Project[]}
+    client:load
+  />
   <EducationSections />
   <AboutMeSections />
 </Layout>

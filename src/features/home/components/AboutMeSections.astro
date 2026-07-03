@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { MapPin } from "@lucide/astro"
+import { IconMapPin } from "@tabler/icons-react"
 import Logo from "~/assets/image/me.webp"
 import { getPageData } from "~/utils/getBlogPage"
 
@@ -37,7 +37,7 @@ const data = await getPageData(Astro.url, "aboutme")
           <div
             class="flex items-center justify-center w-12 h-12 rounded-xl bg-gray-200 dark:bg-neutral-800"
           >
-            <MapPin class="w-6 h-6 text-gray-700 dark:text-gray-300" />
+            <IconMapPin className="w-6 h-6 text-gray-700 dark:text-gray-300" />
           </div>
 
           <div class="text-left">
