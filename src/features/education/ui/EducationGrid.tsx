@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react"
 import { useMemo, useState } from "react"
-import Pagination from "~/components/pagination/Pagination"
 import { createPaginationStore } from "~/stores/paginationStore"
+import Pagination from "~/widgets/pagination/ui/pagination"
 
 interface Diploma {
 	title: string

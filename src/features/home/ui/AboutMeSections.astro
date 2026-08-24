@@ -2,7 +2,7 @@
 import { Image } from "astro:assets"
 import { IconMapPin } from "@tabler/icons-react"
 import Logo from "~/assets/image/me.webp"
-import { getPageData } from "~/utils/getBlogPage"
+import { getPageData } from "~/shared/utils/getBlogPage"
 
 const data = await getPageData(Astro.url, "aboutme")
 ---

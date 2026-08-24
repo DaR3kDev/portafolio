@@ -1,8 +1,8 @@
-import Pagination from "~/components/pagination/Pagination"
-import ProjectCard from "~/features/proyect/components/ProjectCard"
-import TagButton from "~/features/proyect/components/TagButton"
 import type { Project, ProjectTag } from "~/features/proyect/model/types"
 import { useProjects } from "~/features/proyect/model/useProjects"
+import ProjectCard from "~/features/proyect/ui/project-card"
+import TagButton from "~/features/proyect/ui/tag-button"
+import Pagination from "~/widgets/pagination/ui/pagination"
 
 const ITEMS_PER_PAGE = 6
 

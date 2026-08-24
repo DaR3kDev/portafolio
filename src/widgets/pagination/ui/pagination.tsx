@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react"
 import { IconChevronsLeft, IconChevronsRight } from "@tabler/icons-react"
-import PaginationButton from "~/components/pagination/PaginationButton"
 import type { createPaginationStore } from "~/stores/paginationStore"
+import PaginationButton from "~/widgets/pagination/ui/pagination-button"
 
 interface PaginationProps {
 	totalItems: number

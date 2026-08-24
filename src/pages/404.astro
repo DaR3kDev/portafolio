@@ -1,6 +1,6 @@
 ---
 import Layout from "~/layouts/Layout.astro"
-import { getPageData } from "~/utils/getBlogPage"
+import { getPageData } from "~/shared/utils/getBlogPage"
 
 const data = await getPageData(Astro.url, "page404")
 ---

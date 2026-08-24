@@ -1,40 +1,103 @@
 ---
 import "~/styles/global.css"
-import Backgraound from "~/components/backgraoud/Backgraound.astro"
-import Footer from "~/components/footer/Footer.astro"
-import Navbar from "~/components/navbar/Navbar.astro"
-import { getLangFromUrl } from "~/i18n/utils"
+import { getLangFromUrl } from "~/shared/i18n/utils"
+import Background from "~/widgets/background/ui/Background.astro"
+import Footer from "~/widgets/footer/ui/Footer.astro"
+import Navbar from "~/widgets/navbar/ui/Navbar.astro"
 
-const { title = "Portafolio", description = "Portafolio de Kevin" } = Astro.props
+interface Props {
+	title?: string
+	description?: string
+	image?: string
+	noindex?: boolean
+}
+
+const {
+	title = "Kevin Andrés Villegas Pérez | Desarrollador de Software",
+	description = "Portafolio profesional de Kevin Andrés Villegas Pérez, desarrollador de software especializado en C#, .NET, React, TypeScript y desarrollo de aplicaciones web.",
+	image = "/og-image.png",
+	noindex = false,
+} = Astro.props
+
 const lang = getLangFromUrl(Astro.url)
+
+const siteUrl = Astro.site ?? new URL("https://portafolio-opal-beta-55.vercel.app/")
+const canonicalURL = new URL(Astro.url.pathname, siteUrl)
+
+const absoluteImageURL = new URL(image, siteUrl).toString()
+
+const robots = noindex
+	? "noindex, nofollow"
+	: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 ---
 
 <!doctype html>
 <html lang={lang} class="bg-white dark:bg-neutral-950 transition-colors">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
     <meta name="description" content={description} />
+
+    <meta name="robots" content={robots} />
+
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+
+    <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={absoluteImageURL} />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:site_name" content="Kevin Andrés Villegas Pérez" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_CO' : 'en_US'} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImageURL} />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Structured Data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Kevin Andrés Villegas Pérez',
+        url: siteUrl.toString(),
+        jobTitle: 'Software Developer',
+        description,
+        sameAs: ['https://github.com/tu-usuario', 'https://www.linkedin.com/in/tu-perfil'],
+      })}
+    />
   </head>
 
   <body
     class="font-family-poppins relative min-h-screen flex flex-col text-gray-800 dark:text-gray-300 overflow-x-hidden"
   >
-    <!-- Background -->
-    <Backgraound />
+    <Background />
 
-    <!-- Navbar -->
     <Navbar />
+
     <main
       class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24"
     >
       <slot />
     </main>
 
-    <!-- Footer -->
     <Footer />
   </body>
 </html>

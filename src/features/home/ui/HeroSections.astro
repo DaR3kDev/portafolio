@@ -2,8 +2,8 @@
 import { Image } from "astro:assets"
 import { IconBrandGithub, IconBrandLinkedin, IconMail, IconPhone } from "@tabler/icons-react"
 import Logo from "~/assets/image/me.webp"
-import { getLangFromUrl } from "~/i18n/utils"
-import { getPageData } from "~/utils/getBlogPage"
+import { getLangFromUrl } from "~/shared/i18n/utils"
+import { getPageData } from "~/shared/utils/getBlogPage"
 
 const lang = getLangFromUrl(Astro.url)
 const data = await getPageData(Astro.url, "blog")

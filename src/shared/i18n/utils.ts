@@ -1,4 +1,4 @@
-import { ui } from "~/i18n/messages"
+import { ui } from "~/shared/i18n/messages"
 import { defaultLang, type Lang, showDefaultLang } from "./config"
 
 // helpers
